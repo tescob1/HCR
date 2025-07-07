@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_dd7487c24171b33dc69ba1f61f724555 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+    <div id="modal_0" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); z-index: 9999;">
+        <span onclick="closeModal('modal_0');" style="position:absolute; top:20px; right:30px; color:white; font-size:40px; cursor:pointer;">&times;</span>
+        <img src="img_TIF/Abala.gif" style="display:block; margin:auto; max-width:90%; max-height:90%;">
+    </div>
+    
+    
+    <div id="modal_1" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); z-index: 9999;">
+        <span onclick="closeModal('modal_1');" style="position:absolute; top:20px; right:30px; color:white; font-size:40px; cursor:pointer;">&times;</span>
+        <img src="img_TIF/Awserd.gif" style="display:block; margin:auto; max-width:90%; max-height:90%;">
+    </div>
+    
+    
+    <div id="modal_2" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); z-index: 9999;">
+        <span onclick="closeModal('modal_2');" style="position:absolute; top:20px; right:30px; color:white; font-size:40px; cursor:pointer;">&times;</span>
+        <img src="img_TIF/Bambasi.gif" style="display:block; margin:auto; max-width:90%; max-height:90%;">
+    </div>
+    
+    
+    <div id="modal_3" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); z-index: 9999;">
+        <span onclick="closeModal('modal_3');" style="position:absolute; top:20px; right:30px; color:white; font-size:40px; cursor:pointer;">&times;</span>
+        <img src="img_TIF/Dakhla.gif" style="display:block; margin:auto; max-width:90%; max-height:90%;">
+    </div>
+    
+    
+    <div id="modal_4" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); z-index: 9999;">
+        <span onclick="closeModal('modal_4');" style="position:absolute; top:20px; right:30px; color:white; font-size:40px; cursor:pointer;">&times;</span>
+        <img src="img_TIF/Mbera.gif" style="display:block; margin:auto; max-width:90%; max-height:90%;">
+    </div>
+    
+    
+    <div id="modal_5" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); z-index: 9999;">
+        <span onclick="closeModal('modal_5');" style="position:absolute; top:20px; right:30px; color:white; font-size:40px; cursor:pointer;">&times;</span>
+        <img src="img_TIF/Smara.gif" style="display:block; margin:auto; max-width:90%; max-height:90%;">
+    </div>
+    
+    
+    <div id="modal_6" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); z-index: 9999;">
+        <span onclick="closeModal('modal_6');" style="position:absolute; top:20px; right:30px; color:white; font-size:40px; cursor:pointer;">&times;</span>
+        <img src="img_TIF/Gaga.gif" style="display:block; margin:auto; max-width:90%; max-height:90%;">
+    </div>
+    
+    
+    <div id="modal_7" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); z-index: 9999;">
+        <span onclick="closeModal('modal_7');" style="position:absolute; top:20px; right:30px; color:white; font-size:40px; cursor:pointer;">&times;</span>
+        <img src="img_TIF/Chadakori.gif" style="display:block; margin:auto; max-width:90%; max-height:90%;">
+    </div>
+    
+    
+    <div id="modal_8" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); z-index: 9999;">
+        <span onclick="closeModal('modal_8');" style="position:absolute; top:20px; right:30px; color:white; font-size:40px; cursor:pointer;">&times;</span>
+        <img src="img_TIF/Bidibidi.gif" style="display:block; margin:auto; max-width:90%; max-height:90%;">
+    </div>
+    
+    
+    <div id="modal_9" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); z-index: 9999;">
+        <span onclick="closeModal('modal_9');" style="position:absolute; top:20px; right:30px; color:white; font-size:40px; cursor:pointer;">&times;</span>
+        <img src="img_TIF/Kyangwali.gif" style="display:block; margin:auto; max-width:90%; max-height:90%;">
+    </div>
+    
+    
+    <div id="modal_10" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); z-index: 9999;">
+        <span onclick="closeModal('modal_10');" style="position:absolute; top:20px; right:30px; color:white; font-size:40px; cursor:pointer;">&times;</span>
+        <img src="img_TIF/Kyaka_II.gif" style="display:block; margin:auto; max-width:90%; max-height:90%;">
+    </div>
+    
+    
+    <div id="modal_11" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); z-index: 9999;">
+        <span onclick="closeModal('modal_11');" style="position:absolute; top:20px; right:30px; color:white; font-size:40px; cursor:pointer;">&times;</span>
+        <img src="img_TIF/Tongogara.gif" style="display:block; margin:auto; max-width:90%; max-height:90%;">
+    </div>
+    
+    
+    <div id="modal_12" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); z-index: 9999;">
+        <span onclick="closeModal('modal_12');" style="position:absolute; top:20px; right:30px; color:white; font-size:40px; cursor:pointer;">&times;</span>
+        <img src="img_TIF/Kiryandongo.gif" style="display:block; margin:auto; max-width:90%; max-height:90%;">
+    </div>
+    
+    
+    <div id="modal_13" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); z-index: 9999;">
+        <span onclick="closeModal('modal_13');" style="position:absolute; top:20px; right:30px; color:white; font-size:40px; cursor:pointer;">&times;</span>
+        <img src="img_TIF/Nakivale.gif" style="display:block; margin:auto; max-width:90%; max-height:90%;">
+    </div>
+    
+    
+    <div id="modal_14" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); z-index: 9999;">
+        <span onclick="closeModal('modal_14');" style="position:absolute; top:20px; right:30px; color:white; font-size:40px; cursor:pointer;">&times;</span>
+        <img src="img_TIF/Ayilo_1.gif" style="display:block; margin:auto; max-width:90%; max-height:90%;">
+    </div>
+    
+    
+    <div id="modal_15" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); z-index: 9999;">
+        <span onclick="closeModal('modal_15');" style="position:absolute; top:20px; right:30px; color:white; font-size:40px; cursor:pointer;">&times;</span>
+        <img src="img_TIF/Nyarugusu.gif" style="display:block; margin:auto; max-width:90%; max-height:90%;">
+    </div>
+    
+    
+    <div id="modal_16" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); z-index: 9999;">
+        <span onclick="closeModal('modal_16');" style="position:absolute; top:20px; right:30px; color:white; font-size:40px; cursor:pointer;">&times;</span>
+        <img src="img_TIF/Meri.gif" style="display:block; margin:auto; max-width:90%; max-height:90%;">
+    </div>
+    
+    
+<script>
+function openModal(modalId) {
+    document.getElementById(modalId).style.display = "block";
+}
+
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = "none";
+}
+</script>
+    
+     <div style="position: fixed; 
+                 bottom: 10px; left: 10px; width: 250px; height: 200px;
+                 background-color: white; border: 2px solid grey; z-index: 9999;
+                 font-size: 14px; padding: 10px;">
+        <strong>Legend</strong><br>
+        <img src="./icons/blue_house.png" style="width: 30px; height: 30px; vertical-align: middle;"> Site mapping data<br>
+        <img src="icons/green_house.png" style="width: 30px; height: 30px; vertical-align: middle;">OpenStreetMap data<br>
+        <img src="icons/grey_house.png" style="width: 30px; height: 30px; vertical-align: middle;">No data<br>
+        <p><strong>Sources :</strong> <a href="https://im.unhcr.org/apps/sitemapping/#/">UNHCR</a></p>
+        <p style="margin-left: 70px;"><a href="https://browser.dataspace.copernicus.eu/">Copernicus</a>
+    </div>
+    
+            <div class="folium-map" id="map_dd7487c24171b33dc69ba1f61f724555" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_dd7487c24171b33dc69ba1f61f724555 = L.map(
+                "map_dd7487c24171b33dc69ba1f61f724555",
+                {
+                    center: [0.0, 20.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 4,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_a4ff167d3c8ec86028a2da8c3e13452c = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_a4ff167d3c8ec86028a2da8c3e13452c.addTo(map_dd7487c24171b33dc69ba1f61f724555);
+        
+    
+            var marker_aa50b81694892362bed3d08ad2c6891a = L.marker(
+                [14.910382, 3.418554],
+                {
+}
+            ).addTo(map_dd7487c24171b33dc69ba1f61f724555);
+        
+    
+        var custom_icon_e098c5e1fbfb678c635086efacf8c4b6 = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_aa50b81694892362bed3d08ad2c6891a.setIcon(custom_icon_e098c5e1fbfb678c635086efacf8c4b6);
+        
+    
+        var popup_88714d7e83726b6be8b92d2e5c424b3f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_24273c01fcf365572ae314ab6289723c = $(`<div id="html_24273c01fcf365572ae314ab6289723c" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; text-align: left; display: inline-block; padding: 10px;">         <h3 style="color: #2C3E50; "><strong>Abala</strong></h3>         <p style="font-size: 14px;color: #2C3E50;">Population: <strong>21 394</strong> à la fin de 2023</p>         <p style="font-size: 14px;color: #2C3E50;">Latidude: <strong>14.910382</strong></p>         <p style="font-size: 14px;color: #2C3E50;">Longitude: <strong>3.418554</strong></p>         <a href="#" onclick="openModal('modal_0');">             <img src="img_TIF/Abala.gif" style="width: auto; height: auto; max-width: 100%;">         </a>             <br>         <a href="TIF/FBRcollectionMonthlyVH_Abala.tif" download style="font-size: 14px;color: #2C3E50;">Cliquez ici pour télécharger le .tif</a>     </div>     </div>`)[0];
+                popup_88714d7e83726b6be8b92d2e5c424b3f.setContent(html_24273c01fcf365572ae314ab6289723c);
+            
+        
+
+        marker_aa50b81694892362bed3d08ad2c6891a.bindPopup(popup_88714d7e83726b6be8b92d2e5c424b3f)
+        ;
+
+        
+    
+    
+            marker_aa50b81694892362bed3d08ad2c6891a.bindTooltip(
+                `<div>
+                     <p style="font-size: 16px;"><strong>Abala</strong></p>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_aa50b81694892362bed3d08ad2c6891a.setIcon(custom_icon_e098c5e1fbfb678c635086efacf8c4b6);
+            
+    
+            var marker_8cb8f4cc86e547e8da410e2dc1a6d8f1 = L.marker(
+                [27.626641, -7.872215],
+                {
+}
+            ).addTo(map_dd7487c24171b33dc69ba1f61f724555);
+        
+    
+        var custom_icon_aa79b5c067bdf6b040729a59f0d82d8b = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_8cb8f4cc86e547e8da410e2dc1a6d8f1.setIcon(custom_icon_aa79b5c067bdf6b040729a59f0d82d8b);
+        
+    
+        var popup_814d54f4d4e90cb20ccfa743ea391eab = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2a7363c80d51b1d9d97c18073d388d9d = $(`<div id="html_2a7363c80d51b1d9d97c18073d388d9d" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; text-align: left; display: inline-block; padding: 10px;">         <h3 style="color: #2C3E50; "><strong>Awserd</strong></h3>         <p style="font-size: 14px;color: #2C3E50;">Population: <strong>N/A</strong> à la fin de 2023</p>         <p style="font-size: 14px;color: #2C3E50;">Latidude: <strong>27.626641</strong></p>         <p style="font-size: 14px;color: #2C3E50;">Longitude: <strong>-7.872215</strong></p>         <a href="#" onclick="openModal('modal_1');">             <img src="img_TIF/Awserd.gif" style="width: auto; height: auto; max-width: 100%;">         </a>             <br>         <a href="TIF/FBRcollectionMonthlyVH_Awserd.tif" download style="font-size: 14px;color: #2C3E50;">Cliquez ici pour télécharger le .tif</a>     </div>     </div>`)[0];
+                popup_814d54f4d4e90cb20ccfa743ea391eab.setContent(html_2a7363c80d51b1d9d97c18073d388d9d);
+            
+        
+
+        marker_8cb8f4cc86e547e8da410e2dc1a6d8f1.bindPopup(popup_814d54f4d4e90cb20ccfa743ea391eab)
+        ;
+
+        
+    
+    
+            marker_8cb8f4cc86e547e8da410e2dc1a6d8f1.bindTooltip(
+                `<div>
+                     <p style="font-size: 16px;"><strong>Awserd</strong></p>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8cb8f4cc86e547e8da410e2dc1a6d8f1.setIcon(custom_icon_aa79b5c067bdf6b040729a59f0d82d8b);
+            
+    
+            var marker_49a847a4adbf9d33e48cbc0df406a952 = L.marker(
+                [9.777854, 34.780491],
+                {
+}
+            ).addTo(map_dd7487c24171b33dc69ba1f61f724555);
+        
+    
+        var custom_icon_3f9cfb21ddb24efb137f7cae8e75821a = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_49a847a4adbf9d33e48cbc0df406a952.setIcon(custom_icon_3f9cfb21ddb24efb137f7cae8e75821a);
+        
+    
+        var popup_036ad0ae4af46dcd7c73c38a1a045fbb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5237b1851fea4d5d0825eaf6095f57f5 = $(`<div id="html_5237b1851fea4d5d0825eaf6095f57f5" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; text-align: left; display: inline-block; padding: 10px;">         <h3 style="color: #2C3E50; "><strong>Bambasi</strong></h3>         <p style="font-size: 14px;color: #2C3E50;">Population: <strong>20 712</strong> à la fin de 2023</p>         <p style="font-size: 14px;color: #2C3E50;">Latidude: <strong>9.777854</strong></p>         <p style="font-size: 14px;color: #2C3E50;">Longitude: <strong>34.780491</strong></p>         <a href="#" onclick="openModal('modal_2');">             <img src="img_TIF/Bambasi.gif" style="width: auto; height: auto; max-width: 100%;">         </a>             <br>         <a href="TIF/FBRcollectionMonthlyVH_Bambasi.tif" download style="font-size: 14px;color: #2C3E50;">Cliquez ici pour télécharger le .tif</a>     </div>     </div>`)[0];
+                popup_036ad0ae4af46dcd7c73c38a1a045fbb.setContent(html_5237b1851fea4d5d0825eaf6095f57f5);
+            
+        
+
+        marker_49a847a4adbf9d33e48cbc0df406a952.bindPopup(popup_036ad0ae4af46dcd7c73c38a1a045fbb)
+        ;
+
+        
+    
+    
+            marker_49a847a4adbf9d33e48cbc0df406a952.bindTooltip(
+                `<div>
+                     <p style="font-size: 16px;"><strong>Bambasi</strong></p>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_49a847a4adbf9d33e48cbc0df406a952.setIcon(custom_icon_3f9cfb21ddb24efb137f7cae8e75821a);
+            
+    
+            var marker_be4657cf17c6a9612b275cd545e6744d = L.marker(
+                [26.830602, -6.864148],
+                {
+}
+            ).addTo(map_dd7487c24171b33dc69ba1f61f724555);
+        
+    
+        var custom_icon_9c03e966421c6e3c9773bea6e2f33dab = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_be4657cf17c6a9612b275cd545e6744d.setIcon(custom_icon_9c03e966421c6e3c9773bea6e2f33dab);
+        
+    
+        var popup_060dd56811e15cc313f59d1b60fcc8d1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f7d46e3dad8d35161b04e04d98a8ac3d = $(`<div id="html_f7d46e3dad8d35161b04e04d98a8ac3d" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; text-align: left; display: inline-block; padding: 10px;">         <h3 style="color: #2C3E50; "><strong>Dakhla</strong></h3>         <p style="font-size: 14px;color: #2C3E50;">Population: <strong>N/A</strong> à la fin de 2023</p>         <p style="font-size: 14px;color: #2C3E50;">Latidude: <strong>26.830602</strong></p>         <p style="font-size: 14px;color: #2C3E50;">Longitude: <strong>-6.864148</strong></p>         <a href="#" onclick="openModal('modal_3');">             <img src="img_TIF/Dakhla.gif" style="width: auto; height: auto; max-width: 100%;">         </a>             <br>         <a href="TIF/FBRcollectionMonthlyVH_Dakhla.tif" download style="font-size: 14px;color: #2C3E50;">Cliquez ici pour télécharger le .tif</a>     </div>     </div>`)[0];
+                popup_060dd56811e15cc313f59d1b60fcc8d1.setContent(html_f7d46e3dad8d35161b04e04d98a8ac3d);
+            
+        
+
+        marker_be4657cf17c6a9612b275cd545e6744d.bindPopup(popup_060dd56811e15cc313f59d1b60fcc8d1)
+        ;
+
+        
+    
+    
+            marker_be4657cf17c6a9612b275cd545e6744d.bindTooltip(
+                `<div>
+                     <p style="font-size: 16px;"><strong>Dakhla</strong></p>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_be4657cf17c6a9612b275cd545e6744d.setIcon(custom_icon_9c03e966421c6e3c9773bea6e2f33dab);
+            
+    
+            var marker_d6bc79677704af4e772a6c1e87669eab = L.marker(
+                [15.833333, -5.8],
+                {
+}
+            ).addTo(map_dd7487c24171b33dc69ba1f61f724555);
+        
+    
+        var custom_icon_edbbe756f96fee2c61eef921b0774800 = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_d6bc79677704af4e772a6c1e87669eab.setIcon(custom_icon_edbbe756f96fee2c61eef921b0774800);
+        
+    
+        var popup_9fa96113549899e3463ab5cca0d12ed9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_00607fbbaec64e1248cc1fd22715899f = $(`<div id="html_00607fbbaec64e1248cc1fd22715899f" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; text-align: left; display: inline-block; padding: 10px;">         <h3 style="color: #2C3E50; "><strong>Mbera</strong></h3>         <p style="font-size: 14px;color: #2C3E50;">Population: <strong>100 807</strong> à la fin de 2023</p>         <p style="font-size: 14px;color: #2C3E50;">Latidude: <strong>15.833333</strong></p>         <p style="font-size: 14px;color: #2C3E50;">Longitude: <strong>-5.8</strong></p>         <a href="#" onclick="openModal('modal_4');">             <img src="img_TIF/Mbera.gif" style="width: auto; height: auto; max-width: 100%;">         </a>             <br>         <a href="TIF/FBRcollectionMonthlyVH_Mbera.tif" download style="font-size: 14px;color: #2C3E50;">Cliquez ici pour télécharger le .tif</a>     </div>     </div>`)[0];
+                popup_9fa96113549899e3463ab5cca0d12ed9.setContent(html_00607fbbaec64e1248cc1fd22715899f);
+            
+        
+
+        marker_d6bc79677704af4e772a6c1e87669eab.bindPopup(popup_9fa96113549899e3463ab5cca0d12ed9)
+        ;
+
+        
+    
+    
+            marker_d6bc79677704af4e772a6c1e87669eab.bindTooltip(
+                `<div>
+                     <p style="font-size: 16px;"><strong>Mbera</strong></p>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d6bc79677704af4e772a6c1e87669eab.setIcon(custom_icon_edbbe756f96fee2c61eef921b0774800);
+            
+    
+            var marker_a7a9996ba1cdb42a8163bc6b5bdbc37d = L.marker(
+                [27.501643, -7.818791],
+                {
+}
+            ).addTo(map_dd7487c24171b33dc69ba1f61f724555);
+        
+    
+        var custom_icon_95fb079ea1a66133b5a2ed0cc169ea80 = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_a7a9996ba1cdb42a8163bc6b5bdbc37d.setIcon(custom_icon_95fb079ea1a66133b5a2ed0cc169ea80);
+        
+    
+        var popup_c90e15337b60567724a37eb698aa4856 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_76cc8e52b1c2e936c3c2c2862dd23d31 = $(`<div id="html_76cc8e52b1c2e936c3c2c2862dd23d31" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; text-align: left; display: inline-block; padding: 10px;">         <h3 style="color: #2C3E50; "><strong>Smara</strong></h3>         <p style="font-size: 14px;color: #2C3E50;">Population: <strong>N/A</strong> à la fin de 2023</p>         <p style="font-size: 14px;color: #2C3E50;">Latidude: <strong>27.501643</strong></p>         <p style="font-size: 14px;color: #2C3E50;">Longitude: <strong>-7.818791</strong></p>         <a href="#" onclick="openModal('modal_5');">             <img src="img_TIF/Smara.gif" style="width: auto; height: auto; max-width: 100%;">         </a>             <br>         <a href="TIF/FBRcollectionMonthlyVH_Smara.tif" download style="font-size: 14px;color: #2C3E50;">Cliquez ici pour télécharger le .tif</a>     </div>     </div>`)[0];
+                popup_c90e15337b60567724a37eb698aa4856.setContent(html_76cc8e52b1c2e936c3c2c2862dd23d31);
+            
+        
+
+        marker_a7a9996ba1cdb42a8163bc6b5bdbc37d.bindPopup(popup_c90e15337b60567724a37eb698aa4856)
+        ;
+
+        
+    
+    
+            marker_a7a9996ba1cdb42a8163bc6b5bdbc37d.bindTooltip(
+                `<div>
+                     <p style="font-size: 16px;"><strong>Smara</strong></p>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a7a9996ba1cdb42a8163bc6b5bdbc37d.setIcon(custom_icon_95fb079ea1a66133b5a2ed0cc169ea80);
+            
+    
+            var marker_8b09cd80d14d3765413b6590a5cb448e = L.marker(
+                [13.763725, 21.447086],
+                {
+}
+            ).addTo(map_dd7487c24171b33dc69ba1f61f724555);
+        
+    
+        var custom_icon_2342b22f85d079ceac0239147e339939 = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAAA8lJREFUSEvtljtsHEUYgL99P+/WvrsYyygOghKZAkNFQSQEFClwhEgElFFQEghUNFTUIFFZwikgIAVSBGEEigQNNDyiIJBoIlGAgjEJ8vl8j91b7+3OzqBzku4S30VIbjLTzj/fzDf//+9q7OHQ9pDNPfhk9j1KTDRMoNAViTQm2+DG6sm1Owh8jCeOH0EpxY8rFyBHMUCf9ACTwW1SqniLx5bYUBmhH1DLXX5Y+QT6kx9gfLhNgkvw6KuHaduCwjeQoqSuQuxOwS8ffgYFinh8A+PBhzf28BbfOMqa7BCbBVFUYZBleMplWguI+oqfzpyH3vgGdodb5FSwFl87yp9Fi7a2TfW+Gr3WBgfm5kn6BZbQqAx0/G7Bbx98CSmKfHcDd4a7CKYw5pYOIvZP0TUy7NAh7XVxSrmj3axGJEnKfH0Ws51R7+n8fP4r2CgkOXesgtvDHSQh2sKJ5+lEsC56BPWI7V4bzzCwCkGe5wjbwvYDBukAPc45YE4zJ0O+e+/cMPlLkp2CHDlGwwMkOtojxw+xZmfEITi1kLIsyDtdZms1tpqb1OrTXN/cQHcc3LCCJS2cVNEoXMJOyeWPV4dPIMiwRtFHwz3UwdNHaFUkG25O6mkkaYwqCxpBSJFmSFWimyZSCUoUpWmhpIavB/jCxG0JplKDXz9alcSj9Y+GV1GPnVhi0x6QVQ1SfYDrecTpjTpSZYnvB4g8R4oMz3fIStAsh2S7xJQG+4NZrGsJV5YvlPRGqx8Nj1ALp58jriiEq9iM22iORVSpILp9dAG+UyFLE2zPoJ+nDJRCORYZOrbloyWCWqyzvnJR0J1E+xRq7pWnKOZ8siLBrXh0RYbRL5kvqgTbBrVwBqGVFJ7iautvclfDDB1yTdDe6jJTmyXqSH5/54uCGHv8Nw9Q97/+LHFNx7GhE2/hTU/jp/BAz+PS8qpCIHFMiSbMxZMvaH1X0Cy6mJGHZpu0NtvUE5N/z3xb0J0EHqIW3nqJ61oPy5A4jkWz2WRh5kEuvX1OkZKT4e7cxqGNQ/Xxk4f1fqSzLjp4jSmkbqBd7bKx/E1BMgk80tX8i09TeWgGmffJkoR9jQaX3/1U0SMnvQm+5dKliUvt4WOH9H5VIzEkWSGob1v89f7FCbXbqCdPvUxql2RJhyjw+f7s58OWWdDDGdkxqqxh0HjmzWPeertJdV+D3h/XuHL265x8dMzobHdsudOwdakYTh210626twHfOk2Vf1Bo6IQ3Y2ytzTDYGz/hJv0ruMv1u3/V7nLjccLuwcex9L+v2VPt/wFIcJssW/3UBgAAAABJRU5ErkJggg==",
+  "iconSize": [30, 30],
+});
+        marker_8b09cd80d14d3765413b6590a5cb448e.setIcon(custom_icon_2342b22f85d079ceac0239147e339939);
+        
+    
+        var popup_5024a02e1a42d4c149131f0f6b9d40dc = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_87ebb2e846c184aeff9dc7b1995cc8a8 = $(`<div id="html_87ebb2e846c184aeff9dc7b1995cc8a8" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; text-align: left; display: inline-block; padding: 10px;">         <h3 style="color: #2C3E50; "><strong>Gaga</strong></h3>         <p style="font-size: 14px;color: #2C3E50;">Population: <strong>36 856</strong> à la fin de 2023</p>         <p style="font-size: 14px;color: #2C3E50;">Latidude: <strong>13.763725</strong></p>         <p style="font-size: 14px;color: #2C3E50;">Longitude: <strong>21.447086</strong></p>         <a href="#" onclick="openModal('modal_6');">             <img src="img_TIF/Gaga.gif" style="width: auto; height: auto; max-width: 100%;">         </a>             <br>         <a href="TIF/FBRcollectionMonthlyVH_Gaga.tif" download style="font-size: 14px;color: #2C3E50;">Cliquez ici pour télécharger le .tif</a>     </div>     </div>`)[0];
+                popup_5024a02e1a42d4c149131f0f6b9d40dc.setContent(html_87ebb2e846c184aeff9dc7b1995cc8a8);
+            
+        
+
+        marker_8b09cd80d14d3765413b6590a5cb448e.bindPopup(popup_5024a02e1a42d4c149131f0f6b9d40dc)
+        ;
+
+        
+    
+    
+            marker_8b09cd80d14d3765413b6590a5cb448e.bindTooltip(
+                `<div>
+                     <p style="font-size: 16px;"><strong>Gaga</strong></p>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8b09cd80d14d3765413b6590a5cb448e.setIcon(custom_icon_2342b22f85d079ceac0239147e339939);
+            
+    
+            var marker_68ddd9ff8dd4ac044697debddfd37ba2 = L.marker(
+                [13.672647, 6.99],
+                {
+}
+            ).addTo(map_dd7487c24171b33dc69ba1f61f724555);
+        
+    
+        var custom_icon_bb17ddac499616ebd3806585b5242fa4 = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAAAo9JREFUSEvtVTtu20AUnLck9bUNQREgIAFU+gSpUqTJAdLkDDZkGZDgQkdwIUi2AMKCfIVUOUC6IGUOEOQAcWML1sf68LPBbETBRWKTdKFGCxDkkrtv3sy8xxVsccgWsbED34r6iWXXWnNPtO/xXYnIKgmLxOAistRaWwBC27Yt3/cJCq01cRPFS7QYwNSyrGK/30c2m8V8Pkcmk8FyuUSr1YJSCmEYxo4ZeyGAnwAOr6+vMZlMUCgUsFqtYFmWAeVgAp7nxVYgFrjjON89z3t3eXkJ3/cN6zAMsb+/j4eHB9i2bRLh1W63Y1sQB/wrgA9XV1cIggD0l1KPRiPs7e0Zycme3xzHMVe9Xo/q7sn4T38U+QLg42AwMGzG47GRm+wfA3JerVZxc3NjEmMizWbTJKC1fi8i3/7VBc8xn7uum4ukpby8WGjlchmz2cwkwndcU6vVcHt7a3xncmdnZ3z+LSKv04AvXdfNcGM+n8d0OjXMCMZnFhrfr4vMxKfstCKXy+Ho6IjMU4N7nU7HPjg42PgctRalpdS0gnWwWCxMEZZKJQPOZ1Z/anAR8YfDocVAlJUsyZpykxkLy3XdTb9HbUclisUijo+P6X9q5n6/37fInG3EootajYE5J+tut4tKpbJJisnRkkajkZ45AN91XYsAZHp/f296/PT0NKpkA06fz8/PTevRFtYD2bPngyD4JSKHiQtOKeX3ej0raiuyoY8EDILglYjcaZ408rdpLi4ujC20iUmcnJyQ+Q8ReZsYHIDnOI7yPC/M5/N6sVio9anGg2UztNZKKRWs+3rzD1jPU4PHPiHXJ90bAJ/Xm2Za65FS6tP/gjz3k4kNnmbhDjyNai/es5P9xRKmCfAHUI1KLGRb0EsAAAAASUVORK5CYII=",
+  "iconSize": [30, 30],
+});
+        marker_68ddd9ff8dd4ac044697debddfd37ba2.setIcon(custom_icon_bb17ddac499616ebd3806585b5242fa4);
+        
+    
+        var popup_434e2d6ddacc892043e746c4999a8d48 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_45d058de5bc49199f7a445791b65f6d0 = $(`<div id="html_45d058de5bc49199f7a445791b65f6d0" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; text-align: left; display: inline-block; padding: 10px;">         <h3 style="color: #2C3E50; "><strong>Chadakori</strong></h3>         <p style="font-size: 14px;color: #2C3E50;">Population: <strong>N/A</strong> à la fin de 2023</p>         <p style="font-size: 14px;color: #2C3E50;">Latidude: <strong>13.672647</strong></p>         <p style="font-size: 14px;color: #2C3E50;">Longitude: <strong>6.99</strong></p>         <a href="#" onclick="openModal('modal_7');">             <img src="img_TIF/Chadakori.gif" style="width: auto; height: auto; max-width: 100%;">         </a>             <br>         <a href="TIF/FBRcollectionMonthlyVH_Chadakori.tif" download style="font-size: 14px;color: #2C3E50;">Cliquez ici pour télécharger le .tif</a>     </div>     </div>`)[0];
+                popup_434e2d6ddacc892043e746c4999a8d48.setContent(html_45d058de5bc49199f7a445791b65f6d0);
+            
+        
+
+        marker_68ddd9ff8dd4ac044697debddfd37ba2.bindPopup(popup_434e2d6ddacc892043e746c4999a8d48)
+        ;
+
+        
+    
+    
+            marker_68ddd9ff8dd4ac044697debddfd37ba2.bindTooltip(
+                `<div>
+                     <p style="font-size: 16px;"><strong>Chadakori</strong></p>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_68ddd9ff8dd4ac044697debddfd37ba2.setIcon(custom_icon_bb17ddac499616ebd3806585b5242fa4);
+            
+    
+            var marker_f72b9dcee1d7c4668bd9dcab6f5806cd = L.marker(
+                [3.478382, 31.373434],
+                {
+}
+            ).addTo(map_dd7487c24171b33dc69ba1f61f724555);
+        
+    
+        var custom_icon_585421f60397e33907b84cc18fac4d25 = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_f72b9dcee1d7c4668bd9dcab6f5806cd.setIcon(custom_icon_585421f60397e33907b84cc18fac4d25);
+        
+    
+        var popup_07db77de6519a2f4225a46dbdf8066e8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4de725c4cf5cef1057f87438e98a97b2 = $(`<div id="html_4de725c4cf5cef1057f87438e98a97b2" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; text-align: left; display: inline-block; padding: 10px;">         <h3 style="color: #2C3E50; "><strong>Bidibidi</strong></h3>         <p style="font-size: 14px;color: #2C3E50;">Population: <strong>197 535</strong> à la fin de 2023</p>         <p style="font-size: 14px;color: #2C3E50;">Latidude: <strong>3.478382</strong></p>         <p style="font-size: 14px;color: #2C3E50;">Longitude: <strong>31.373434</strong></p>         <a href="#" onclick="openModal('modal_8');">             <img src="img_TIF/Bidibidi.gif" style="width: auto; height: auto; max-width: 100%;">         </a>             <br>         <a href="TIF/FBRcollectionMonthlyVH_Bidibidi.tif" download style="font-size: 14px;color: #2C3E50;">Cliquez ici pour télécharger le .tif</a>     </div>     </div>`)[0];
+                popup_07db77de6519a2f4225a46dbdf8066e8.setContent(html_4de725c4cf5cef1057f87438e98a97b2);
+            
+        
+
+        marker_f72b9dcee1d7c4668bd9dcab6f5806cd.bindPopup(popup_07db77de6519a2f4225a46dbdf8066e8)
+        ;
+
+        
+    
+    
+            marker_f72b9dcee1d7c4668bd9dcab6f5806cd.bindTooltip(
+                `<div>
+                     <p style="font-size: 16px;"><strong>Bidibidi</strong></p>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f72b9dcee1d7c4668bd9dcab6f5806cd.setIcon(custom_icon_585421f60397e33907b84cc18fac4d25);
+            
+    
+            var marker_7acc07d5fac72d52564f362f9aea3738 = L.marker(
+                [1.179656, 30.763555],
+                {
+}
+            ).addTo(map_dd7487c24171b33dc69ba1f61f724555);
+        
+    
+        var custom_icon_7a695c5a6f11c1c854aee9f8075747cf = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_7acc07d5fac72d52564f362f9aea3738.setIcon(custom_icon_7a695c5a6f11c1c854aee9f8075747cf);
+        
+    
+        var popup_a7334056e5cd3f719e4a91c4a8705b4e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_817d887c4f09f88625bc64947429178e = $(`<div id="html_817d887c4f09f88625bc64947429178e" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; text-align: left; display: inline-block; padding: 10px;">         <h3 style="color: #2C3E50; "><strong>Kyangwali</strong></h3>         <p style="font-size: 14px;color: #2C3E50;">Population: <strong>133 265</strong> à la fin de 2023</p>         <p style="font-size: 14px;color: #2C3E50;">Latidude: <strong>1.179656</strong></p>         <p style="font-size: 14px;color: #2C3E50;">Longitude: <strong>30.763555</strong></p>         <a href="#" onclick="openModal('modal_9');">             <img src="img_TIF/Kyangwali.gif" style="width: auto; height: auto; max-width: 100%;">         </a>             <br>         <a href="TIF/FBRcollectionMonthlyVH_Kyangwali.tif" download style="font-size: 14px;color: #2C3E50;">Cliquez ici pour télécharger le .tif</a>     </div>     </div>`)[0];
+                popup_a7334056e5cd3f719e4a91c4a8705b4e.setContent(html_817d887c4f09f88625bc64947429178e);
+            
+        
+
+        marker_7acc07d5fac72d52564f362f9aea3738.bindPopup(popup_a7334056e5cd3f719e4a91c4a8705b4e)
+        ;
+
+        
+    
+    
+            marker_7acc07d5fac72d52564f362f9aea3738.bindTooltip(
+                `<div>
+                     <p style="font-size: 16px;"><strong>Kyangwali</strong></p>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7acc07d5fac72d52564f362f9aea3738.setIcon(custom_icon_7a695c5a6f11c1c854aee9f8075747cf);
+            
+    
+            var marker_4b8eebc9b76ccfcfb34414a2ab746416 = L.marker(
+                [0.357999, 31.081311],
+                {
+}
+            ).addTo(map_dd7487c24171b33dc69ba1f61f724555);
+        
+    
+        var custom_icon_8a17a958a25288f010e2e40f0965e73d = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_4b8eebc9b76ccfcfb34414a2ab746416.setIcon(custom_icon_8a17a958a25288f010e2e40f0965e73d);
+        
+    
+        var popup_c3e93408aae865fc5cbe06a259d728f1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3b2621a1b89a7fae2672702fb7d088d8 = $(`<div id="html_3b2621a1b89a7fae2672702fb7d088d8" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; text-align: left; display: inline-block; padding: 10px;">         <h3 style="color: #2C3E50; "><strong>Kyaka_II</strong></h3>         <p style="font-size: 14px;color: #2C3E50;">Population: <strong>125 754</strong> à la fin de 2023</p>         <p style="font-size: 14px;color: #2C3E50;">Latidude: <strong>0.357999</strong></p>         <p style="font-size: 14px;color: #2C3E50;">Longitude: <strong>31.081311</strong></p>         <a href="#" onclick="openModal('modal_10');">             <img src="img_TIF/Kyaka_II.gif" style="width: auto; height: auto; max-width: 100%;">         </a>             <br>         <a href="TIF/FBRcollectionMonthlyVV_Kyaka_II.tif" download style="font-size: 14px;color: #2C3E50;">Cliquez ici pour télécharger le .tif</a>     </div>     </div>`)[0];
+                popup_c3e93408aae865fc5cbe06a259d728f1.setContent(html_3b2621a1b89a7fae2672702fb7d088d8);
+            
+        
+
+        marker_4b8eebc9b76ccfcfb34414a2ab746416.bindPopup(popup_c3e93408aae865fc5cbe06a259d728f1)
+        ;
+
+        
+    
+    
+            marker_4b8eebc9b76ccfcfb34414a2ab746416.bindTooltip(
+                `<div>
+                     <p style="font-size: 16px;"><strong>Kyaka_II</strong></p>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4b8eebc9b76ccfcfb34414a2ab746416.setIcon(custom_icon_8a17a958a25288f010e2e40f0965e73d);
+            
+    
+            var marker_ba98592a19f7bae764548e24d6e421b3 = L.marker(
+                [-20.346946, 32.308155],
+                {
+}
+            ).addTo(map_dd7487c24171b33dc69ba1f61f724555);
+        
+    
+        var custom_icon_6a5bb10144f816777953903341991549 = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_ba98592a19f7bae764548e24d6e421b3.setIcon(custom_icon_6a5bb10144f816777953903341991549);
+        
+    
+        var popup_34e340ec6c26a8dc811e2c63b4b93849 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6269b26d5c2eccd85485760cc294dd42 = $(`<div id="html_6269b26d5c2eccd85485760cc294dd42" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; text-align: left; display: inline-block; padding: 10px;">         <h3 style="color: #2C3E50; "><strong>Tongogara</strong></h3>         <p style="font-size: 14px;color: #2C3E50;">Population: <strong>N/A</strong> à la fin de 2023</p>         <p style="font-size: 14px;color: #2C3E50;">Latidude: <strong>-20.346946</strong></p>         <p style="font-size: 14px;color: #2C3E50;">Longitude: <strong>32.308155</strong></p>         <a href="#" onclick="openModal('modal_11');">             <img src="img_TIF/Tongogara.gif" style="width: auto; height: auto; max-width: 100%;">         </a>             <br>         <a href="TIF/FBRcollectionMonthlyVV_Tongogara.tif" download style="font-size: 14px;color: #2C3E50;">Cliquez ici pour télécharger le .tif</a>     </div>     </div>`)[0];
+                popup_34e340ec6c26a8dc811e2c63b4b93849.setContent(html_6269b26d5c2eccd85485760cc294dd42);
+            
+        
+
+        marker_ba98592a19f7bae764548e24d6e421b3.bindPopup(popup_34e340ec6c26a8dc811e2c63b4b93849)
+        ;
+
+        
+    
+    
+            marker_ba98592a19f7bae764548e24d6e421b3.bindTooltip(
+                `<div>
+                     <p style="font-size: 16px;"><strong>Tongogara</strong></p>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ba98592a19f7bae764548e24d6e421b3.setIcon(custom_icon_6a5bb10144f816777953903341991549);
+            
+    
+            var marker_6c0224c5b7886207d0c9ccd88cfac1fd = L.marker(
+                [1.939906, 32.170786],
+                {
+}
+            ).addTo(map_dd7487c24171b33dc69ba1f61f724555);
+        
+    
+        var custom_icon_96ccf3233a5ec591e60158ecbc7df492 = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_6c0224c5b7886207d0c9ccd88cfac1fd.setIcon(custom_icon_96ccf3233a5ec591e60158ecbc7df492);
+        
+    
+        var popup_6a29aa62349878dafe879ce9dfc96028 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_27f44ccc2178241df86bb44bbe056442 = $(`<div id="html_27f44ccc2178241df86bb44bbe056442" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; text-align: left; display: inline-block; padding: 10px;">         <h3 style="color: #2C3E50; "><strong>Kiryandongo</strong></h3>         <p style="font-size: 14px;color: #2C3E50;">Population: <strong>N/A</strong> à la fin de 2023</p>         <p style="font-size: 14px;color: #2C3E50;">Latidude: <strong>1.939906</strong></p>         <p style="font-size: 14px;color: #2C3E50;">Longitude: <strong>32.170786</strong></p>         <a href="#" onclick="openModal('modal_12');">             <img src="img_TIF/Kiryandongo.gif" style="width: auto; height: auto; max-width: 100%;">         </a>             <br>         <a href="TIF/FBRcollectionMonthlyVV_Kiryandongo.tif" download style="font-size: 14px;color: #2C3E50;">Cliquez ici pour télécharger le .tif</a>     </div>     </div>`)[0];
+                popup_6a29aa62349878dafe879ce9dfc96028.setContent(html_27f44ccc2178241df86bb44bbe056442);
+            
+        
+
+        marker_6c0224c5b7886207d0c9ccd88cfac1fd.bindPopup(popup_6a29aa62349878dafe879ce9dfc96028)
+        ;
+
+        
+    
+    
+            marker_6c0224c5b7886207d0c9ccd88cfac1fd.bindTooltip(
+                `<div>
+                     <p style="font-size: 16px;"><strong>Kiryandongo</strong></p>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6c0224c5b7886207d0c9ccd88cfac1fd.setIcon(custom_icon_96ccf3233a5ec591e60158ecbc7df492);
+            
+    
+            var marker_c4b08ebdf8dcf18ef34a85712679e2fc = L.marker(
+                [-0.776389, 30.949444],
+                {
+}
+            ).addTo(map_dd7487c24171b33dc69ba1f61f724555);
+        
+    
+        var custom_icon_9ba821fdbba41af341c56524b2f8c2db = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_c4b08ebdf8dcf18ef34a85712679e2fc.setIcon(custom_icon_9ba821fdbba41af341c56524b2f8c2db);
+        
+    
+        var popup_2fef750d84899e7c320f37d4958f2869 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_294749112159b5ae7093791e94c289ce = $(`<div id="html_294749112159b5ae7093791e94c289ce" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; text-align: left; display: inline-block; padding: 10px;">         <h3 style="color: #2C3E50; "><strong>Nakivale</strong></h3>         <p style="font-size: 14px;color: #2C3E50;">Population: <strong>183 441</strong> à la fin de 2023</p>         <p style="font-size: 14px;color: #2C3E50;">Latidude: <strong>-0.776389</strong></p>         <p style="font-size: 14px;color: #2C3E50;">Longitude: <strong>30.949444</strong></p>         <a href="#" onclick="openModal('modal_13');">             <img src="img_TIF/Nakivale.gif" style="width: auto; height: auto; max-width: 100%;">         </a>             <br>         <a href="TIF/FBRcollectionMonthlyVV_Nakivale.tif" download style="font-size: 14px;color: #2C3E50;">Cliquez ici pour télécharger le .tif</a>     </div>     </div>`)[0];
+                popup_2fef750d84899e7c320f37d4958f2869.setContent(html_294749112159b5ae7093791e94c289ce);
+            
+        
+
+        marker_c4b08ebdf8dcf18ef34a85712679e2fc.bindPopup(popup_2fef750d84899e7c320f37d4958f2869)
+        ;
+
+        
+    
+    
+            marker_c4b08ebdf8dcf18ef34a85712679e2fc.bindTooltip(
+                `<div>
+                     <p style="font-size: 16px;"><strong>Nakivale</strong></p>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c4b08ebdf8dcf18ef34a85712679e2fc.setIcon(custom_icon_9ba821fdbba41af341c56524b2f8c2db);
+            
+    
+            var marker_d20ca159e3ae8b10304cbead7a0eaeda = L.marker(
+                [3.291162, 31.940242],
+                {
+}
+            ).addTo(map_dd7487c24171b33dc69ba1f61f724555);
+        
+    
+        var custom_icon_407fc58677e1aac18b7007cbeec74d14 = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_d20ca159e3ae8b10304cbead7a0eaeda.setIcon(custom_icon_407fc58677e1aac18b7007cbeec74d14);
+        
+    
+        var popup_78fa57597d5eb2fac46dbfce4a80619d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d488e56d9cf24aafc60fb8b6b6114a77 = $(`<div id="html_d488e56d9cf24aafc60fb8b6b6114a77" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; text-align: left; display: inline-block; padding: 10px;">         <h3 style="color: #2C3E50; "><strong>Ayilo_1</strong></h3>         <p style="font-size: 14px;color: #2C3E50;">Population: <strong>N/A</strong> à la fin de 2023</p>         <p style="font-size: 14px;color: #2C3E50;">Latidude: <strong>3.291162</strong></p>         <p style="font-size: 14px;color: #2C3E50;">Longitude: <strong>31.940242</strong></p>         <a href="#" onclick="openModal('modal_14');">             <img src="img_TIF/Ayilo_1.gif" style="width: auto; height: auto; max-width: 100%;">         </a>             <br>         <a href="TIF/FBRcollectionMonthlyVV_Ayilo_1.tif" download style="font-size: 14px;color: #2C3E50;">Cliquez ici pour télécharger le .tif</a>     </div>     </div>`)[0];
+                popup_78fa57597d5eb2fac46dbfce4a80619d.setContent(html_d488e56d9cf24aafc60fb8b6b6114a77);
+            
+        
+
+        marker_d20ca159e3ae8b10304cbead7a0eaeda.bindPopup(popup_78fa57597d5eb2fac46dbfce4a80619d)
+        ;
+
+        
+    
+    
+            marker_d20ca159e3ae8b10304cbead7a0eaeda.bindTooltip(
+                `<div>
+                     <p style="font-size: 16px;"><strong>Ayilo_1</strong></p>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d20ca159e3ae8b10304cbead7a0eaeda.setIcon(custom_icon_407fc58677e1aac18b7007cbeec74d14);
+            
+    
+            var marker_7c648f3eac75a40538c5b502e5a65a02 = L.marker(
+                [-4.2209, 30.3846],
+                {
+}
+            ).addTo(map_dd7487c24171b33dc69ba1f61f724555);
+        
+    
+        var custom_icon_84bc4f5c0afa5cffc34e45d532ebea49 = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_7c648f3eac75a40538c5b502e5a65a02.setIcon(custom_icon_84bc4f5c0afa5cffc34e45d532ebea49);
+        
+    
+        var popup_7ec532f2fff2ec22fec16c637c954f8f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1aff81f627f82e6a1eccd612886db3da = $(`<div id="html_1aff81f627f82e6a1eccd612886db3da" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; text-align: left; display: inline-block; padding: 10px;">         <h3 style="color: #2C3E50; "><strong>Nyarugusu</strong></h3>         <p style="font-size: 14px;color: #2C3E50;">Population: <strong>136 479</strong> à la fin de 2023</p>         <p style="font-size: 14px;color: #2C3E50;">Latidude: <strong>-4.2209</strong></p>         <p style="font-size: 14px;color: #2C3E50;">Longitude: <strong>30.3846</strong></p>         <a href="#" onclick="openModal('modal_15');">             <img src="img_TIF/Nyarugusu.gif" style="width: auto; height: auto; max-width: 100%;">         </a>             <br>         <a href="TIF/FBRcollectionMonthlyVV_Nyarugusu.tif" download style="font-size: 14px;color: #2C3E50;">Cliquez ici pour télécharger le .tif</a>     </div>     </div>`)[0];
+                popup_7ec532f2fff2ec22fec16c637c954f8f.setContent(html_1aff81f627f82e6a1eccd612886db3da);
+            
+        
+
+        marker_7c648f3eac75a40538c5b502e5a65a02.bindPopup(popup_7ec532f2fff2ec22fec16c637c954f8f)
+        ;
+
+        
+    
+    
+            marker_7c648f3eac75a40538c5b502e5a65a02.bindTooltip(
+                `<div>
+                     <p style="font-size: 16px;"><strong>Nyarugusu</strong></p>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7c648f3eac75a40538c5b502e5a65a02.setIcon(custom_icon_84bc4f5c0afa5cffc34e45d532ebea49);
+            
+    
+            var marker_11e92b375245596fc588061b013af5eb = L.marker(
+                [3.8486, 30.20186],
+                {
+}
+            ).addTo(map_dd7487c24171b33dc69ba1f61f724555);
+        
+    
+        var custom_icon_bce3eaf20c7120c9dfd313694bfa967b = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_11e92b375245596fc588061b013af5eb.setIcon(custom_icon_bce3eaf20c7120c9dfd313694bfa967b);
+        
+    
+        var popup_b651d097bec38ea9e33f6141808d1e10 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a572cdde6fd1eb44e97eb25f50351993 = $(`<div id="html_a572cdde6fd1eb44e97eb25f50351993" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; text-align: left; display: inline-block; padding: 10px;">         <h3 style="color: #2C3E50; "><strong>Meri</strong></h3>         <p style="font-size: 14px;color: #2C3E50;">Population: <strong>25 203</strong> à la fin de 2023</p>         <p style="font-size: 14px;color: #2C3E50;">Latidude: <strong>3.8486</strong></p>         <p style="font-size: 14px;color: #2C3E50;">Longitude: <strong>30.20186</strong></p>         <a href="#" onclick="openModal('modal_16');">             <img src="img_TIF/Meri.gif" style="width: auto; height: auto; max-width: 100%;">         </a>             <br>         <a href="TIF/FBRcollectionMonthlyVV_Meri.tif" download style="font-size: 14px;color: #2C3E50;">Cliquez ici pour télécharger le .tif</a>     </div>     </div>`)[0];
+                popup_b651d097bec38ea9e33f6141808d1e10.setContent(html_a572cdde6fd1eb44e97eb25f50351993);
+            
+        
+
+        marker_11e92b375245596fc588061b013af5eb.bindPopup(popup_b651d097bec38ea9e33f6141808d1e10)
+        ;
+
+        
+    
+    
+            marker_11e92b375245596fc588061b013af5eb.bindTooltip(
+                `<div>
+                     <p style="font-size: 16px;"><strong>Meri</strong></p>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_11e92b375245596fc588061b013af5eb.setIcon(custom_icon_bce3eaf20c7120c9dfd313694bfa967b);
+            
+</script>
+</html>

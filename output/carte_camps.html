@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_8933bc8f20bee2780887237149f0cbd4 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+        <div id="modal_0" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_0');">
+            <span onclick="closeModal('modal_0');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/img_TIF/Abala.gif" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Abala">
+                    <h2 style="color:white; margin-top:20px;">Abala</h2>
+                    <p style="color:white;">Population: 21 394 | Radar: VH</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_0_results" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_0_results');">
+            <span onclick="closeModal('modal_0_results');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/results/Abala_results.png" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Résultats Abala">
+                    <h2 style="color:white; margin-top:20px;">Résultats d'analyse - Abala</h2>
+                    <p style="color:white;">Population: 21 394 | Radar: VH</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_1" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_1');">
+            <span onclick="closeModal('modal_1');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/img_TIF/Awserd.gif" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Awserd">
+                    <h2 style="color:white; margin-top:20px;">Awserd</h2>
+                    <p style="color:white;">Population: N/A | Radar: VH</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_1_results" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_1_results');">
+            <span onclick="closeModal('modal_1_results');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/results/Awserd_results.png" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Résultats Awserd">
+                    <h2 style="color:white; margin-top:20px;">Résultats d'analyse - Awserd</h2>
+                    <p style="color:white;">Population: N/A | Radar: VH</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_2" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_2');">
+            <span onclick="closeModal('modal_2');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/img_TIF/Bambasi.gif" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Bambasi">
+                    <h2 style="color:white; margin-top:20px;">Bambasi</h2>
+                    <p style="color:white;">Population: 20 712 | Radar: VH</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_2_results" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_2_results');">
+            <span onclick="closeModal('modal_2_results');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/results/Bambasi_results.png" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Résultats Bambasi">
+                    <h2 style="color:white; margin-top:20px;">Résultats d'analyse - Bambasi</h2>
+                    <p style="color:white;">Population: 20 712 | Radar: VH</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_3" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_3');">
+            <span onclick="closeModal('modal_3');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/img_TIF/Dakhla.gif" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Dakhla">
+                    <h2 style="color:white; margin-top:20px;">Dakhla</h2>
+                    <p style="color:white;">Population: N/A | Radar: VH</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_3_results" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_3_results');">
+            <span onclick="closeModal('modal_3_results');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/results/Dakhla_results.png" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Résultats Dakhla">
+                    <h2 style="color:white; margin-top:20px;">Résultats d'analyse - Dakhla</h2>
+                    <p style="color:white;">Population: N/A | Radar: VH</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_4" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_4');">
+            <span onclick="closeModal('modal_4');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/img_TIF/Mbera.gif" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Mbera">
+                    <h2 style="color:white; margin-top:20px;">Mbera</h2>
+                    <p style="color:white;">Population: 100 807 | Radar: VH</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_4_results" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_4_results');">
+            <span onclick="closeModal('modal_4_results');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/results/Mbera_results.png" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Résultats Mbera">
+                    <h2 style="color:white; margin-top:20px;">Résultats d'analyse - Mbera</h2>
+                    <p style="color:white;">Population: 100 807 | Radar: VH</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_5" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_5');">
+            <span onclick="closeModal('modal_5');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/img_TIF/Smara.gif" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Smara">
+                    <h2 style="color:white; margin-top:20px;">Smara</h2>
+                    <p style="color:white;">Population: N/A | Radar: VH</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_5_results" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_5_results');">
+            <span onclick="closeModal('modal_5_results');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/results/Smara_results.png" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Résultats Smara">
+                    <h2 style="color:white; margin-top:20px;">Résultats d'analyse - Smara</h2>
+                    <p style="color:white;">Population: N/A | Radar: VH</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_6" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_6');">
+            <span onclick="closeModal('modal_6');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/img_TIF/Gaga.gif" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Gaga">
+                    <h2 style="color:white; margin-top:20px;">Gaga</h2>
+                    <p style="color:white;">Population: 36 856 | Radar: VH</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_6_results" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_6_results');">
+            <span onclick="closeModal('modal_6_results');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/results/Gaga_results.png" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Résultats Gaga">
+                    <h2 style="color:white; margin-top:20px;">Résultats d'analyse - Gaga</h2>
+                    <p style="color:white;">Population: 36 856 | Radar: VH</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_7" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_7');">
+            <span onclick="closeModal('modal_7');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/img_TIF/Chadakori.gif" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Chadakori">
+                    <h2 style="color:white; margin-top:20px;">Chadakori</h2>
+                    <p style="color:white;">Population: N/A | Radar: VH</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_7_results" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_7_results');">
+            <span onclick="closeModal('modal_7_results');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/results/Chadakori_results.png" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Résultats Chadakori">
+                    <h2 style="color:white; margin-top:20px;">Résultats d'analyse - Chadakori</h2>
+                    <p style="color:white;">Population: N/A | Radar: VH</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_8" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_8');">
+            <span onclick="closeModal('modal_8');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/img_TIF/Bidibidi.gif" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Bidibidi">
+                    <h2 style="color:white; margin-top:20px;">Bidibidi</h2>
+                    <p style="color:white;">Population: 197 535 | Radar: VH</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_8_results" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_8_results');">
+            <span onclick="closeModal('modal_8_results');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/results/Bidibidi_results.png" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Résultats Bidibidi">
+                    <h2 style="color:white; margin-top:20px;">Résultats d'analyse - Bidibidi</h2>
+                    <p style="color:white;">Population: 197 535 | Radar: VH</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_9" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_9');">
+            <span onclick="closeModal('modal_9');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/img_TIF/Kyangwali.gif" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Kyangwali">
+                    <h2 style="color:white; margin-top:20px;">Kyangwali</h2>
+                    <p style="color:white;">Population: 133 265 | Radar: VH</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_9_results" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_9_results');">
+            <span onclick="closeModal('modal_9_results');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/results/Kyangwali_results.png" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Résultats Kyangwali">
+                    <h2 style="color:white; margin-top:20px;">Résultats d'analyse - Kyangwali</h2>
+                    <p style="color:white;">Population: 133 265 | Radar: VH</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_10" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_10');">
+            <span onclick="closeModal('modal_10');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/img_TIF/Kyaka_II.gif" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Kyaka_II">
+                    <h2 style="color:white; margin-top:20px;">Kyaka_II</h2>
+                    <p style="color:white;">Population: 125 754 | Radar: VV</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_10_results" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_10_results');">
+            <span onclick="closeModal('modal_10_results');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/results/Kyaka_II_results.png" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Résultats Kyaka_II">
+                    <h2 style="color:white; margin-top:20px;">Résultats d'analyse - Kyaka_II</h2>
+                    <p style="color:white;">Population: 125 754 | Radar: VV</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_11" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_11');">
+            <span onclick="closeModal('modal_11');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/img_TIF/Tongogara.gif" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Tongogara">
+                    <h2 style="color:white; margin-top:20px;">Tongogara</h2>
+                    <p style="color:white;">Population: N/A | Radar: VV</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_11_results" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_11_results');">
+            <span onclick="closeModal('modal_11_results');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/results/Tongogara_results.png" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Résultats Tongogara">
+                    <h2 style="color:white; margin-top:20px;">Résultats d'analyse - Tongogara</h2>
+                    <p style="color:white;">Population: N/A | Radar: VV</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_12" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_12');">
+            <span onclick="closeModal('modal_12');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/img_TIF/Kiryandongo.gif" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Kiryandongo">
+                    <h2 style="color:white; margin-top:20px;">Kiryandongo</h2>
+                    <p style="color:white;">Population: N/A | Radar: VV</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_12_results" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_12_results');">
+            <span onclick="closeModal('modal_12_results');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/results/Kiryandongo_results.png" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Résultats Kiryandongo">
+                    <h2 style="color:white; margin-top:20px;">Résultats d'analyse - Kiryandongo</h2>
+                    <p style="color:white;">Population: N/A | Radar: VV</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_13" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_13');">
+            <span onclick="closeModal('modal_13');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/img_TIF/Nakivale.gif" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Nakivale">
+                    <h2 style="color:white; margin-top:20px;">Nakivale</h2>
+                    <p style="color:white;">Population: 183 441 | Radar: VV</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_13_results" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_13_results');">
+            <span onclick="closeModal('modal_13_results');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/results/Nakivale_results.png" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Résultats Nakivale">
+                    <h2 style="color:white; margin-top:20px;">Résultats d'analyse - Nakivale</h2>
+                    <p style="color:white;">Population: 183 441 | Radar: VV</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_14" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_14');">
+            <span onclick="closeModal('modal_14');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/img_TIF/Ayilo_1.gif" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Ayilo_1">
+                    <h2 style="color:white; margin-top:20px;">Ayilo_1</h2>
+                    <p style="color:white;">Population: N/A | Radar: VV</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_14_results" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_14_results');">
+            <span onclick="closeModal('modal_14_results');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/results/Ayilo_1_results.png" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Résultats Ayilo_1">
+                    <h2 style="color:white; margin-top:20px;">Résultats d'analyse - Ayilo_1</h2>
+                    <p style="color:white;">Population: N/A | Radar: VV</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_15" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_15');">
+            <span onclick="closeModal('modal_15');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/img_TIF/Nyarugusu.gif" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Nyarugusu">
+                    <h2 style="color:white; margin-top:20px;">Nyarugusu</h2>
+                    <p style="color:white;">Population: 136 479 | Radar: VV</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_15_results" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_15_results');">
+            <span onclick="closeModal('modal_15_results');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/results/Nyarugusu_results.png" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Résultats Nyarugusu">
+                    <h2 style="color:white; margin-top:20px;">Résultats d'analyse - Nyarugusu</h2>
+                    <p style="color:white;">Population: 136 479 | Radar: VV</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_16" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_16');">
+            <span onclick="closeModal('modal_16');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/img_TIF/Meri.gif" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Meri">
+                    <h2 style="color:white; margin-top:20px;">Meri</h2>
+                    <p style="color:white;">Population: 25 203 | Radar: VV</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="modal_16_results" style="display:none; position:fixed; top:0; left:0; 
+                                   width:100%; height:100%; background-color: rgba(0,0,0,0.8); 
+                                   z-index: 9999; cursor: pointer;" 
+             onclick="closeModal('modal_16_results');">
+            <span onclick="closeModal('modal_16_results');" 
+                  style="position:absolute; top:20px; right:30px; color:white; 
+                         font-size:40px; cursor:pointer; z-index: 10000;">&times;</span>
+            <div style="display:flex; align-items:center; justify-content:center; 
+                        height:100%; padding:20px;">
+                <div style="text-align:center; max-width:90%; max-height:90%;">
+                    <img src="../assets/results/Meri_results.png" 
+                         style="max-width:100%; max-height:80vh; object-fit:contain;"
+                         alt="Résultats Meri">
+                    <h2 style="color:white; margin-top:20px;">Résultats d'analyse - Meri</h2>
+                    <p style="color:white;">Population: 25 203 | Radar: VV</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+            document.body.style.overflow = "hidden"; // Empêcher le scroll
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+            document.body.style.overflow = "auto"; // Rétablir le scroll
+        }
+        
+        // Fermer le modal en cliquant en dehors de l'image
+        document.addEventListener('click', function(event) {
+            if (event.target.id && event.target.id.startsWith('modal_')) {
+                closeModal(event.target.id);
+            }
+        });
+        
+        // Fermer le modal avec la touche Échap
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                var modals = document.querySelectorAll('[id^="modal_"]');
+                modals.forEach(function(modal) {
+                    if (modal.style.display === 'block') {
+                        closeModal(modal.id);
+                    }
+                });
+            }
+        });
+        </script>
+        
+    
+        <div style="position: fixed; 
+                    bottom: 10px; 
+                    left: 10px; 
+                    width: 250px; 
+                    height: 200px;
+                    background-color: white; 
+                    border: 2px solid grey; 
+                    z-index: 9999;
+                    font-size: 14px; 
+                    padding: 10px;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 10px rgba(0,0,0,0.3);">
+            <h4 style="margin: 0 0 10px 0; color: #2C3E50;">🗺️ Légende</h4>
+            
+            <div style="margin: 5px 0;">
+                <img src=../assets/icons/blue_house.png
+                     style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
+                Site mapping data
+            </div>
+            
+            <div style="margin: 5px 0;">
+                <img src=../assets/icons/green_house.png
+                     style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
+                OpenStreetMap data
+            </div>
+            
+            <div style="margin: 5px 0;">
+                <img src=../assets/icons/grey_house.png
+                     style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
+                No data
+            </div>
+            
+            <div style="margin-top: 15px; padding-top: 10px; border-top: 1px solid #ddd;">
+                <p style="margin: 5px 0; font-size: 12px;">
+                    <strong>Sources:</strong><br>
+                    <a href="https://im.unhcr.org/apps/sitemapping/#/" target="_blank" style="color: #3498db;">UNHCR</a> | 
+                    <a href="https://browser.dataspace.copernicus.eu/" target="_blank" style="color: #3498db;">Copernicus</a>
+                </p>
+            </div>
+        </div>
+        
+    
+        <div style="position: fixed; 
+                    top: 10px; right: 10px; 
+                    background-color: white; 
+                    border: 2px solid #3498db; 
+                    border-radius: 8px;
+                    padding: 15px; 
+                    z-index: 9999;
+                    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+                    font-family: Arial;
+                    font-size: 14px;">
+            <h4 style="margin: 0 0 10px 0; color: #2C3E50;">📊 Statistiques</h4>
+            <p style="margin: 5px 0;"><strong>Total des camps:</strong> 17</p>
+            <hr style="border: 1px solid #ddd; margin: 10px 0;">
+        <p style="margin: 3px 0;">• Site mapping data: 15</p><p style="margin: 3px 0;">• OpenStreetMap data: 1</p><p style="margin: 3px 0;">• No data: 1</p></div>
+    
+            <div class="folium-map" id="map_8933bc8f20bee2780887237149f0cbd4" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_8933bc8f20bee2780887237149f0cbd4 = L.map(
+                "map_8933bc8f20bee2780887237149f0cbd4",
+                {
+                    center: [0.0, 20.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 4,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_2a83c23af46fc3ecc4c5035327b88c62 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_2a83c23af46fc3ecc4c5035327b88c62.addTo(map_8933bc8f20bee2780887237149f0cbd4);
+        
+    
+            var marker_6b1d55545b25ed3481af3ab04b8fdcd0 = L.marker(
+                [14.910382, 3.418554],
+                {
+}
+            ).addTo(map_8933bc8f20bee2780887237149f0cbd4);
+        
+    
+        var custom_icon_8c9ef1311a015d371f89d3f31c226b85 = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_6b1d55545b25ed3481af3ab04b8fdcd0.setIcon(custom_icon_8c9ef1311a015d371f89d3f31c226b85);
+        
+    
+        var popup_7202838ae0b64c9ee9919f8b02464b30 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_373c78519e46edbb6d8169c22bd8fd9e = $(`<div id="html_373c78519e46edbb6d8169c22bd8fd9e" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial;                      text-align: left;                      display: inline-block;                      padding: 10px;                     min-width: 200px;">             <h3 style="color: #2C3E50; margin: 0 0 10px 0;"><strong>Abala</strong></h3>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Population: <strong>21 394</strong> à la fin de 2023             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Latitude: <strong>14.910382</strong>             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Longitude: <strong>3.418554</strong>             </p>             <div style="text-align: center; margin: 15px 0;">                 <a href="#" onclick="openModal('modal_0');">                     <img src="../assets/img_TIF/Abala.gif"                           style="width: auto; height: auto; max-width: 100%; cursor: pointer; border: 1px solid #ddd;"                          alt="Aperçu Abala">                 </a>                 </div>                          <div style="text-align: center; margin: 15px 0;">                 <div style="margin-bottom: 8px;">                     <a href="#" onclick="openModal('modal_0_results');"                         style="font-size: 14px; color: white;                                text-decoration: none; background: #e74c3c;                                padding: 8px 15px; border-radius: 4px;                                display: inline-block; width: 150px; text-align: center;">                         📊 Voir les résultats                     </a>                 </div>                 <div>                     <a href=../assets/TIF/FBRcollectionMonthlyVH_Abala.tif                        download                         style="font-size: 14px; color: white;                                text-decoration: none; background: #3498db;                                padding: 8px 15px; border-radius: 4px;                               display: inline-block; width: 150px; text-align: center;">                         📥 Télécharger le .tif                     </a>                 </div>             </div>         </div>         </div>`)[0];
+                popup_7202838ae0b64c9ee9919f8b02464b30.setContent(html_373c78519e46edbb6d8169c22bd8fd9e);
+            
+        
+
+        marker_6b1d55545b25ed3481af3ab04b8fdcd0.bindPopup(popup_7202838ae0b64c9ee9919f8b02464b30)
+        ;
+
+        
+    
+    
+            marker_6b1d55545b25ed3481af3ab04b8fdcd0.bindTooltip(
+                `<div>
+                     <div style='font-size: 16px; font-weight: bold;'>Abala</div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6b1d55545b25ed3481af3ab04b8fdcd0.setIcon(custom_icon_8c9ef1311a015d371f89d3f31c226b85);
+            
+    
+            var marker_640f96edfc7a1c164bb89c8cc6cdb0e4 = L.marker(
+                [27.626641, -7.872215],
+                {
+}
+            ).addTo(map_8933bc8f20bee2780887237149f0cbd4);
+        
+    
+        var custom_icon_92f8edbfa30176ed72211efbac44860d = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_640f96edfc7a1c164bb89c8cc6cdb0e4.setIcon(custom_icon_92f8edbfa30176ed72211efbac44860d);
+        
+    
+        var popup_1990591971f4ca859e110fcf786fc7d4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c957b0f19b0e223070dbd04a496dca3f = $(`<div id="html_c957b0f19b0e223070dbd04a496dca3f" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial;                      text-align: left;                      display: inline-block;                      padding: 10px;                     min-width: 200px;">             <h3 style="color: #2C3E50; margin: 0 0 10px 0;"><strong>Awserd</strong></h3>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Population: <strong>N/A</strong> à la fin de 2023             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Latitude: <strong>27.626641</strong>             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Longitude: <strong>-7.872215</strong>             </p>             <div style="text-align: center; margin: 15px 0;">                 <a href="#" onclick="openModal('modal_1');">                     <img src="../assets/img_TIF/Awserd.gif"                           style="width: auto; height: auto; max-width: 100%; cursor: pointer; border: 1px solid #ddd;"                          alt="Aperçu Awserd">                 </a>                 </div>                          <div style="text-align: center; margin: 15px 0;">                 <div style="margin-bottom: 8px;">                     <a href="#" onclick="openModal('modal_1_results');"                         style="font-size: 14px; color: white;                                text-decoration: none; background: #e74c3c;                                padding: 8px 15px; border-radius: 4px;                                display: inline-block; width: 150px; text-align: center;">                         📊 Voir les résultats                     </a>                 </div>                 <div>                     <a href=../assets/TIF/FBRcollectionMonthlyVH_Awserd.tif                        download                         style="font-size: 14px; color: white;                                text-decoration: none; background: #3498db;                                padding: 8px 15px; border-radius: 4px;                               display: inline-block; width: 150px; text-align: center;">                         📥 Télécharger le .tif                     </a>                 </div>             </div>         </div>         </div>`)[0];
+                popup_1990591971f4ca859e110fcf786fc7d4.setContent(html_c957b0f19b0e223070dbd04a496dca3f);
+            
+        
+
+        marker_640f96edfc7a1c164bb89c8cc6cdb0e4.bindPopup(popup_1990591971f4ca859e110fcf786fc7d4)
+        ;
+
+        
+    
+    
+            marker_640f96edfc7a1c164bb89c8cc6cdb0e4.bindTooltip(
+                `<div>
+                     <div style='font-size: 16px; font-weight: bold;'>Awserd</div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_640f96edfc7a1c164bb89c8cc6cdb0e4.setIcon(custom_icon_92f8edbfa30176ed72211efbac44860d);
+            
+    
+            var marker_45f8103c72faf74bceb8dc7000df5568 = L.marker(
+                [9.777854, 34.780491],
+                {
+}
+            ).addTo(map_8933bc8f20bee2780887237149f0cbd4);
+        
+    
+        var custom_icon_373beafaaeb0eb214dace5eb70c3e6b4 = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_45f8103c72faf74bceb8dc7000df5568.setIcon(custom_icon_373beafaaeb0eb214dace5eb70c3e6b4);
+        
+    
+        var popup_d2c4367bd747ac82a897860e1a51c7d0 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_039f002afd7754550a1b0933869e7fbc = $(`<div id="html_039f002afd7754550a1b0933869e7fbc" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial;                      text-align: left;                      display: inline-block;                      padding: 10px;                     min-width: 200px;">             <h3 style="color: #2C3E50; margin: 0 0 10px 0;"><strong>Bambasi</strong></h3>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Population: <strong>20 712</strong> à la fin de 2023             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Latitude: <strong>9.777854</strong>             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Longitude: <strong>34.780491</strong>             </p>             <div style="text-align: center; margin: 15px 0;">                 <a href="#" onclick="openModal('modal_2');">                     <img src="../assets/img_TIF/Bambasi.gif"                           style="width: auto; height: auto; max-width: 100%; cursor: pointer; border: 1px solid #ddd;"                          alt="Aperçu Bambasi">                 </a>                 </div>                          <div style="text-align: center; margin: 15px 0;">                 <div style="margin-bottom: 8px;">                     <a href="#" onclick="openModal('modal_2_results');"                         style="font-size: 14px; color: white;                                text-decoration: none; background: #e74c3c;                                padding: 8px 15px; border-radius: 4px;                                display: inline-block; width: 150px; text-align: center;">                         📊 Voir les résultats                     </a>                 </div>                 <div>                     <a href=../assets/TIF/FBRcollectionMonthlyVH_Bambasi.tif                        download                         style="font-size: 14px; color: white;                                text-decoration: none; background: #3498db;                                padding: 8px 15px; border-radius: 4px;                               display: inline-block; width: 150px; text-align: center;">                         📥 Télécharger le .tif                     </a>                 </div>             </div>         </div>         </div>`)[0];
+                popup_d2c4367bd747ac82a897860e1a51c7d0.setContent(html_039f002afd7754550a1b0933869e7fbc);
+            
+        
+
+        marker_45f8103c72faf74bceb8dc7000df5568.bindPopup(popup_d2c4367bd747ac82a897860e1a51c7d0)
+        ;
+
+        
+    
+    
+            marker_45f8103c72faf74bceb8dc7000df5568.bindTooltip(
+                `<div>
+                     <div style='font-size: 16px; font-weight: bold;'>Bambasi</div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_45f8103c72faf74bceb8dc7000df5568.setIcon(custom_icon_373beafaaeb0eb214dace5eb70c3e6b4);
+            
+    
+            var marker_b70120358b970e44b49606aedfb2842b = L.marker(
+                [26.830602, -6.864148],
+                {
+}
+            ).addTo(map_8933bc8f20bee2780887237149f0cbd4);
+        
+    
+        var custom_icon_d1b17ddf401399716813ad494f3a82d5 = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_b70120358b970e44b49606aedfb2842b.setIcon(custom_icon_d1b17ddf401399716813ad494f3a82d5);
+        
+    
+        var popup_c6e59fb8d450159e552b1a399e33953b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f2ef54ccf294270375510b78e9b698f2 = $(`<div id="html_f2ef54ccf294270375510b78e9b698f2" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial;                      text-align: left;                      display: inline-block;                      padding: 10px;                     min-width: 200px;">             <h3 style="color: #2C3E50; margin: 0 0 10px 0;"><strong>Dakhla</strong></h3>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Population: <strong>N/A</strong> à la fin de 2023             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Latitude: <strong>26.830602</strong>             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Longitude: <strong>-6.864148</strong>             </p>             <div style="text-align: center; margin: 15px 0;">                 <a href="#" onclick="openModal('modal_3');">                     <img src="../assets/img_TIF/Dakhla.gif"                           style="width: auto; height: auto; max-width: 100%; cursor: pointer; border: 1px solid #ddd;"                          alt="Aperçu Dakhla">                 </a>                 </div>                          <div style="text-align: center; margin: 15px 0;">                 <div style="margin-bottom: 8px;">                     <a href="#" onclick="openModal('modal_3_results');"                         style="font-size: 14px; color: white;                                text-decoration: none; background: #e74c3c;                                padding: 8px 15px; border-radius: 4px;                                display: inline-block; width: 150px; text-align: center;">                         📊 Voir les résultats                     </a>                 </div>                 <div>                     <a href=../assets/TIF/FBRcollectionMonthlyVH_Dakhla.tif                        download                         style="font-size: 14px; color: white;                                text-decoration: none; background: #3498db;                                padding: 8px 15px; border-radius: 4px;                               display: inline-block; width: 150px; text-align: center;">                         📥 Télécharger le .tif                     </a>                 </div>             </div>         </div>         </div>`)[0];
+                popup_c6e59fb8d450159e552b1a399e33953b.setContent(html_f2ef54ccf294270375510b78e9b698f2);
+            
+        
+
+        marker_b70120358b970e44b49606aedfb2842b.bindPopup(popup_c6e59fb8d450159e552b1a399e33953b)
+        ;
+
+        
+    
+    
+            marker_b70120358b970e44b49606aedfb2842b.bindTooltip(
+                `<div>
+                     <div style='font-size: 16px; font-weight: bold;'>Dakhla</div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b70120358b970e44b49606aedfb2842b.setIcon(custom_icon_d1b17ddf401399716813ad494f3a82d5);
+            
+    
+            var marker_57c71207ffcd47e4dc9b80e4fbc36f2c = L.marker(
+                [15.833333, -5.8],
+                {
+}
+            ).addTo(map_8933bc8f20bee2780887237149f0cbd4);
+        
+    
+        var custom_icon_628b76638826074aa284e05c105461ed = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_57c71207ffcd47e4dc9b80e4fbc36f2c.setIcon(custom_icon_628b76638826074aa284e05c105461ed);
+        
+    
+        var popup_9a563c44f1011caa0b0c9a230c499b2e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8e3a52a7775c6c06ec1f8b2fa9112259 = $(`<div id="html_8e3a52a7775c6c06ec1f8b2fa9112259" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial;                      text-align: left;                      display: inline-block;                      padding: 10px;                     min-width: 200px;">             <h3 style="color: #2C3E50; margin: 0 0 10px 0;"><strong>Mbera</strong></h3>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Population: <strong>100 807</strong> à la fin de 2023             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Latitude: <strong>15.833333</strong>             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Longitude: <strong>-5.800000</strong>             </p>             <div style="text-align: center; margin: 15px 0;">                 <a href="#" onclick="openModal('modal_4');">                     <img src="../assets/img_TIF/Mbera.gif"                           style="width: auto; height: auto; max-width: 100%; cursor: pointer; border: 1px solid #ddd;"                          alt="Aperçu Mbera">                 </a>                 </div>                          <div style="text-align: center; margin: 15px 0;">                 <div style="margin-bottom: 8px;">                     <a href="#" onclick="openModal('modal_4_results');"                         style="font-size: 14px; color: white;                                text-decoration: none; background: #e74c3c;                                padding: 8px 15px; border-radius: 4px;                                display: inline-block; width: 150px; text-align: center;">                         📊 Voir les résultats                     </a>                 </div>                 <div>                     <a href=../assets/TIF/FBRcollectionMonthlyVH_Mbera.tif                        download                         style="font-size: 14px; color: white;                                text-decoration: none; background: #3498db;                                padding: 8px 15px; border-radius: 4px;                               display: inline-block; width: 150px; text-align: center;">                         📥 Télécharger le .tif                     </a>                 </div>             </div>         </div>         </div>`)[0];
+                popup_9a563c44f1011caa0b0c9a230c499b2e.setContent(html_8e3a52a7775c6c06ec1f8b2fa9112259);
+            
+        
+
+        marker_57c71207ffcd47e4dc9b80e4fbc36f2c.bindPopup(popup_9a563c44f1011caa0b0c9a230c499b2e)
+        ;
+
+        
+    
+    
+            marker_57c71207ffcd47e4dc9b80e4fbc36f2c.bindTooltip(
+                `<div>
+                     <div style='font-size: 16px; font-weight: bold;'>Mbera</div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_57c71207ffcd47e4dc9b80e4fbc36f2c.setIcon(custom_icon_628b76638826074aa284e05c105461ed);
+            
+    
+            var marker_6b195a940ea487ebd77e0e6a03308db5 = L.marker(
+                [27.501643, -7.818791],
+                {
+}
+            ).addTo(map_8933bc8f20bee2780887237149f0cbd4);
+        
+    
+        var custom_icon_c93e9032831ee11da434bba3d819e7d0 = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_6b195a940ea487ebd77e0e6a03308db5.setIcon(custom_icon_c93e9032831ee11da434bba3d819e7d0);
+        
+    
+        var popup_f3184a99be294138a8ada33c55ebee8a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e50092bd0adae19e21d6c92d34baaf8b = $(`<div id="html_e50092bd0adae19e21d6c92d34baaf8b" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial;                      text-align: left;                      display: inline-block;                      padding: 10px;                     min-width: 200px;">             <h3 style="color: #2C3E50; margin: 0 0 10px 0;"><strong>Smara</strong></h3>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Population: <strong>N/A</strong> à la fin de 2023             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Latitude: <strong>27.501643</strong>             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Longitude: <strong>-7.818791</strong>             </p>             <div style="text-align: center; margin: 15px 0;">                 <a href="#" onclick="openModal('modal_5');">                     <img src="../assets/img_TIF/Smara.gif"                           style="width: auto; height: auto; max-width: 100%; cursor: pointer; border: 1px solid #ddd;"                          alt="Aperçu Smara">                 </a>                 </div>                          <div style="text-align: center; margin: 15px 0;">                 <div style="margin-bottom: 8px;">                     <a href="#" onclick="openModal('modal_5_results');"                         style="font-size: 14px; color: white;                                text-decoration: none; background: #e74c3c;                                padding: 8px 15px; border-radius: 4px;                                display: inline-block; width: 150px; text-align: center;">                         📊 Voir les résultats                     </a>                 </div>                 <div>                     <a href=../assets/TIF/FBRcollectionMonthlyVH_Smara.tif                        download                         style="font-size: 14px; color: white;                                text-decoration: none; background: #3498db;                                padding: 8px 15px; border-radius: 4px;                               display: inline-block; width: 150px; text-align: center;">                         📥 Télécharger le .tif                     </a>                 </div>             </div>         </div>         </div>`)[0];
+                popup_f3184a99be294138a8ada33c55ebee8a.setContent(html_e50092bd0adae19e21d6c92d34baaf8b);
+            
+        
+
+        marker_6b195a940ea487ebd77e0e6a03308db5.bindPopup(popup_f3184a99be294138a8ada33c55ebee8a)
+        ;
+
+        
+    
+    
+            marker_6b195a940ea487ebd77e0e6a03308db5.bindTooltip(
+                `<div>
+                     <div style='font-size: 16px; font-weight: bold;'>Smara</div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6b195a940ea487ebd77e0e6a03308db5.setIcon(custom_icon_c93e9032831ee11da434bba3d819e7d0);
+            
+    
+            var marker_3210043b50180b0e3b0adf58b37b43d7 = L.marker(
+                [13.763725, 21.447086],
+                {
+}
+            ).addTo(map_8933bc8f20bee2780887237149f0cbd4);
+        
+    
+        var custom_icon_309472c027195fb3df249edac2226588 = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAAA8lJREFUSEvtljtsHEUYgL99P+/WvrsYyygOghKZAkNFQSQEFClwhEgElFFQEghUNFTUIFFZwikgIAVSBGEEigQNNDyiIJBoIlGAgjEJ8vl8j91b7+3OzqBzku4S30VIbjLTzj/fzDf//+9q7OHQ9pDNPfhk9j1KTDRMoNAViTQm2+DG6sm1Owh8jCeOH0EpxY8rFyBHMUCf9ACTwW1SqniLx5bYUBmhH1DLXX5Y+QT6kx9gfLhNgkvw6KuHaduCwjeQoqSuQuxOwS8ffgYFinh8A+PBhzf28BbfOMqa7BCbBVFUYZBleMplWguI+oqfzpyH3vgGdodb5FSwFl87yp9Fi7a2TfW+Gr3WBgfm5kn6BZbQqAx0/G7Bbx98CSmKfHcDd4a7CKYw5pYOIvZP0TUy7NAh7XVxSrmj3axGJEnKfH0Ws51R7+n8fP4r2CgkOXesgtvDHSQh2sKJ5+lEsC56BPWI7V4bzzCwCkGe5wjbwvYDBukAPc45YE4zJ0O+e+/cMPlLkp2CHDlGwwMkOtojxw+xZmfEITi1kLIsyDtdZms1tpqb1OrTXN/cQHcc3LCCJS2cVNEoXMJOyeWPV4dPIMiwRtFHwz3UwdNHaFUkG25O6mkkaYwqCxpBSJFmSFWimyZSCUoUpWmhpIavB/jCxG0JplKDXz9alcSj9Y+GV1GPnVhi0x6QVQ1SfYDrecTpjTpSZYnvB4g8R4oMz3fIStAsh2S7xJQG+4NZrGsJV5YvlPRGqx8Nj1ALp58jriiEq9iM22iORVSpILp9dAG+UyFLE2zPoJ+nDJRCORYZOrbloyWCWqyzvnJR0J1E+xRq7pWnKOZ8siLBrXh0RYbRL5kvqgTbBrVwBqGVFJ7iautvclfDDB1yTdDe6jJTmyXqSH5/54uCGHv8Nw9Q97/+LHFNx7GhE2/hTU/jp/BAz+PS8qpCIHFMiSbMxZMvaH1X0Cy6mJGHZpu0NtvUE5N/z3xb0J0EHqIW3nqJ61oPy5A4jkWz2WRh5kEuvX1OkZKT4e7cxqGNQ/Xxk4f1fqSzLjp4jSmkbqBd7bKx/E1BMgk80tX8i09TeWgGmffJkoR9jQaX3/1U0SMnvQm+5dKliUvt4WOH9H5VIzEkWSGob1v89f7FCbXbqCdPvUxql2RJhyjw+f7s58OWWdDDGdkxqqxh0HjmzWPeertJdV+D3h/XuHL265x8dMzobHdsudOwdakYTh210626twHfOk2Vf1Bo6IQ3Y2ytzTDYGz/hJv0ruMv1u3/V7nLjccLuwcex9L+v2VPt/wFIcJssW/3UBgAAAABJRU5ErkJggg==",
+  "iconSize": [30, 30],
+});
+        marker_3210043b50180b0e3b0adf58b37b43d7.setIcon(custom_icon_309472c027195fb3df249edac2226588);
+        
+    
+        var popup_04d914ddc26183f9e7b917cd9eb97e4a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0cdcfbe9146895f572f12b1a1adeefe4 = $(`<div id="html_0cdcfbe9146895f572f12b1a1adeefe4" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial;                      text-align: left;                      display: inline-block;                      padding: 10px;                     min-width: 200px;">             <h3 style="color: #2C3E50; margin: 0 0 10px 0;"><strong>Gaga</strong></h3>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Population: <strong>36 856</strong> à la fin de 2023             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Latitude: <strong>13.763725</strong>             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Longitude: <strong>21.447086</strong>             </p>             <div style="text-align: center; margin: 15px 0;">                 <a href="#" onclick="openModal('modal_6');">                     <img src="../assets/img_TIF/Gaga.gif"                           style="width: auto; height: auto; max-width: 100%; cursor: pointer; border: 1px solid #ddd;"                          alt="Aperçu Gaga">                 </a>                 </div>                          <div style="text-align: center; margin: 15px 0;">                 <div style="margin-bottom: 8px;">                     <a href="#" onclick="openModal('modal_6_results');"                         style="font-size: 14px; color: white;                                text-decoration: none; background: #e74c3c;                                padding: 8px 15px; border-radius: 4px;                                display: inline-block; width: 150px; text-align: center;">                         📊 Voir les résultats                     </a>                 </div>                 <div>                     <a href=../assets/TIF/FBRcollectionMonthlyVH_Gaga.tif                        download                         style="font-size: 14px; color: white;                                text-decoration: none; background: #3498db;                                padding: 8px 15px; border-radius: 4px;                               display: inline-block; width: 150px; text-align: center;">                         📥 Télécharger le .tif                     </a>                 </div>             </div>         </div>         </div>`)[0];
+                popup_04d914ddc26183f9e7b917cd9eb97e4a.setContent(html_0cdcfbe9146895f572f12b1a1adeefe4);
+            
+        
+
+        marker_3210043b50180b0e3b0adf58b37b43d7.bindPopup(popup_04d914ddc26183f9e7b917cd9eb97e4a)
+        ;
+
+        
+    
+    
+            marker_3210043b50180b0e3b0adf58b37b43d7.bindTooltip(
+                `<div>
+                     <div style='font-size: 16px; font-weight: bold;'>Gaga</div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3210043b50180b0e3b0adf58b37b43d7.setIcon(custom_icon_309472c027195fb3df249edac2226588);
+            
+    
+            var marker_e72d283e27e1b27c06ab7e960f76cd46 = L.marker(
+                [13.672647, 6.99],
+                {
+}
+            ).addTo(map_8933bc8f20bee2780887237149f0cbd4);
+        
+    
+        var custom_icon_698542bc4abff2b59bb489da7c340e56 = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAAAo9JREFUSEvtVTtu20AUnLck9bUNQREgIAFU+gSpUqTJAdLkDDZkGZDgQkdwIUi2AMKCfIVUOUC6IGUOEOQAcWML1sf68LPBbETBRWKTdKFGCxDkkrtv3sy8xxVsccgWsbED34r6iWXXWnNPtO/xXYnIKgmLxOAistRaWwBC27Yt3/cJCq01cRPFS7QYwNSyrGK/30c2m8V8Pkcmk8FyuUSr1YJSCmEYxo4ZeyGAnwAOr6+vMZlMUCgUsFqtYFmWAeVgAp7nxVYgFrjjON89z3t3eXkJ3/cN6zAMsb+/j4eHB9i2bRLh1W63Y1sQB/wrgA9XV1cIggD0l1KPRiPs7e0Zycme3xzHMVe9Xo/q7sn4T38U+QLg42AwMGzG47GRm+wfA3JerVZxc3NjEmMizWbTJKC1fi8i3/7VBc8xn7uum4ukpby8WGjlchmz2cwkwndcU6vVcHt7a3xncmdnZ3z+LSKv04AvXdfNcGM+n8d0OjXMCMZnFhrfr4vMxKfstCKXy+Ho6IjMU4N7nU7HPjg42PgctRalpdS0gnWwWCxMEZZKJQPOZ1Z/anAR8YfDocVAlJUsyZpykxkLy3XdTb9HbUclisUijo+P6X9q5n6/37fInG3EootajYE5J+tut4tKpbJJisnRkkajkZ45AN91XYsAZHp/f296/PT0NKpkA06fz8/PTevRFtYD2bPngyD4JSKHiQtOKeX3ej0raiuyoY8EDILglYjcaZ408rdpLi4ujC20iUmcnJyQ+Q8ReZsYHIDnOI7yPC/M5/N6sVio9anGg2UztNZKKRWs+3rzD1jPU4PHPiHXJ90bAJ/Xm2Za65FS6tP/gjz3k4kNnmbhDjyNai/es5P9xRKmCfAHUI1KLGRb0EsAAAAASUVORK5CYII=",
+  "iconSize": [30, 30],
+});
+        marker_e72d283e27e1b27c06ab7e960f76cd46.setIcon(custom_icon_698542bc4abff2b59bb489da7c340e56);
+        
+    
+        var popup_509297f7bf8f3fec8aedf24b82937eb8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_19175c31da3b6d20b984d512c1d1be7d = $(`<div id="html_19175c31da3b6d20b984d512c1d1be7d" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial;                      text-align: left;                      display: inline-block;                      padding: 10px;                     min-width: 200px;">             <h3 style="color: #2C3E50; margin: 0 0 10px 0;"><strong>Chadakori</strong></h3>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Population: <strong>N/A</strong> à la fin de 2023             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Latitude: <strong>13.672647</strong>             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Longitude: <strong>6.990000</strong>             </p>             <div style="text-align: center; margin: 15px 0;">                 <a href="#" onclick="openModal('modal_7');">                     <img src="../assets/img_TIF/Chadakori.gif"                           style="width: auto; height: auto; max-width: 100%; cursor: pointer; border: 1px solid #ddd;"                          alt="Aperçu Chadakori">                 </a>                 </div>                          <div style="text-align: center; margin: 15px 0;">                 <div style="margin-bottom: 8px;">                     <a href="#" onclick="openModal('modal_7_results');"                         style="font-size: 14px; color: white;                                text-decoration: none; background: #e74c3c;                                padding: 8px 15px; border-radius: 4px;                                display: inline-block; width: 150px; text-align: center;">                         📊 Voir les résultats                     </a>                 </div>                 <div>                     <a href=../assets/TIF/FBRcollectionMonthlyVH_Chadakori.tif                        download                         style="font-size: 14px; color: white;                                text-decoration: none; background: #3498db;                                padding: 8px 15px; border-radius: 4px;                               display: inline-block; width: 150px; text-align: center;">                         📥 Télécharger le .tif                     </a>                 </div>             </div>         </div>         </div>`)[0];
+                popup_509297f7bf8f3fec8aedf24b82937eb8.setContent(html_19175c31da3b6d20b984d512c1d1be7d);
+            
+        
+
+        marker_e72d283e27e1b27c06ab7e960f76cd46.bindPopup(popup_509297f7bf8f3fec8aedf24b82937eb8)
+        ;
+
+        
+    
+    
+            marker_e72d283e27e1b27c06ab7e960f76cd46.bindTooltip(
+                `<div>
+                     <div style='font-size: 16px; font-weight: bold;'>Chadakori</div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e72d283e27e1b27c06ab7e960f76cd46.setIcon(custom_icon_698542bc4abff2b59bb489da7c340e56);
+            
+    
+            var marker_611ac4e03b5e4b3c3248c39ca27b6b53 = L.marker(
+                [3.478382, 31.373434],
+                {
+}
+            ).addTo(map_8933bc8f20bee2780887237149f0cbd4);
+        
+    
+        var custom_icon_f34a7dce27b110a317058e5be7550656 = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_611ac4e03b5e4b3c3248c39ca27b6b53.setIcon(custom_icon_f34a7dce27b110a317058e5be7550656);
+        
+    
+        var popup_663678477507e2d09b2f67245d7b3635 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_59c10873a8b539ad2afa9371df4e1091 = $(`<div id="html_59c10873a8b539ad2afa9371df4e1091" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial;                      text-align: left;                      display: inline-block;                      padding: 10px;                     min-width: 200px;">             <h3 style="color: #2C3E50; margin: 0 0 10px 0;"><strong>Bidibidi</strong></h3>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Population: <strong>197 535</strong> à la fin de 2023             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Latitude: <strong>3.478382</strong>             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Longitude: <strong>31.373434</strong>             </p>             <div style="text-align: center; margin: 15px 0;">                 <a href="#" onclick="openModal('modal_8');">                     <img src="../assets/img_TIF/Bidibidi.gif"                           style="width: auto; height: auto; max-width: 100%; cursor: pointer; border: 1px solid #ddd;"                          alt="Aperçu Bidibidi">                 </a>                 </div>                          <div style="text-align: center; margin: 15px 0;">                 <div style="margin-bottom: 8px;">                     <a href="#" onclick="openModal('modal_8_results');"                         style="font-size: 14px; color: white;                                text-decoration: none; background: #e74c3c;                                padding: 8px 15px; border-radius: 4px;                                display: inline-block; width: 150px; text-align: center;">                         📊 Voir les résultats                     </a>                 </div>                 <div>                     <a href=../assets/TIF/FBRcollectionMonthlyVH_Bidibidi.tif                        download                         style="font-size: 14px; color: white;                                text-decoration: none; background: #3498db;                                padding: 8px 15px; border-radius: 4px;                               display: inline-block; width: 150px; text-align: center;">                         📥 Télécharger le .tif                     </a>                 </div>             </div>         </div>         </div>`)[0];
+                popup_663678477507e2d09b2f67245d7b3635.setContent(html_59c10873a8b539ad2afa9371df4e1091);
+            
+        
+
+        marker_611ac4e03b5e4b3c3248c39ca27b6b53.bindPopup(popup_663678477507e2d09b2f67245d7b3635)
+        ;
+
+        
+    
+    
+            marker_611ac4e03b5e4b3c3248c39ca27b6b53.bindTooltip(
+                `<div>
+                     <div style='font-size: 16px; font-weight: bold;'>Bidibidi</div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_611ac4e03b5e4b3c3248c39ca27b6b53.setIcon(custom_icon_f34a7dce27b110a317058e5be7550656);
+            
+    
+            var marker_6ea083e049ac18b2645e7962871b281b = L.marker(
+                [1.179656, 30.763555],
+                {
+}
+            ).addTo(map_8933bc8f20bee2780887237149f0cbd4);
+        
+    
+        var custom_icon_fa21538e98b68d64021415b298e7cce8 = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_6ea083e049ac18b2645e7962871b281b.setIcon(custom_icon_fa21538e98b68d64021415b298e7cce8);
+        
+    
+        var popup_e7ab4706b89816e2f600dbcccacbb5c3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f5cba55373074cd146bb9e570a5b60ea = $(`<div id="html_f5cba55373074cd146bb9e570a5b60ea" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial;                      text-align: left;                      display: inline-block;                      padding: 10px;                     min-width: 200px;">             <h3 style="color: #2C3E50; margin: 0 0 10px 0;"><strong>Kyangwali</strong></h3>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Population: <strong>133 265</strong> à la fin de 2023             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Latitude: <strong>1.179656</strong>             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Longitude: <strong>30.763555</strong>             </p>             <div style="text-align: center; margin: 15px 0;">                 <a href="#" onclick="openModal('modal_9');">                     <img src="../assets/img_TIF/Kyangwali.gif"                           style="width: auto; height: auto; max-width: 100%; cursor: pointer; border: 1px solid #ddd;"                          alt="Aperçu Kyangwali">                 </a>                 </div>                          <div style="text-align: center; margin: 15px 0;">                 <div style="margin-bottom: 8px;">                     <a href="#" onclick="openModal('modal_9_results');"                         style="font-size: 14px; color: white;                                text-decoration: none; background: #e74c3c;                                padding: 8px 15px; border-radius: 4px;                                display: inline-block; width: 150px; text-align: center;">                         📊 Voir les résultats                     </a>                 </div>                 <div>                     <a href=../assets/TIF/FBRcollectionMonthlyVH_Kyangwali.tif                        download                         style="font-size: 14px; color: white;                                text-decoration: none; background: #3498db;                                padding: 8px 15px; border-radius: 4px;                               display: inline-block; width: 150px; text-align: center;">                         📥 Télécharger le .tif                     </a>                 </div>             </div>         </div>         </div>`)[0];
+                popup_e7ab4706b89816e2f600dbcccacbb5c3.setContent(html_f5cba55373074cd146bb9e570a5b60ea);
+            
+        
+
+        marker_6ea083e049ac18b2645e7962871b281b.bindPopup(popup_e7ab4706b89816e2f600dbcccacbb5c3)
+        ;
+
+        
+    
+    
+            marker_6ea083e049ac18b2645e7962871b281b.bindTooltip(
+                `<div>
+                     <div style='font-size: 16px; font-weight: bold;'>Kyangwali</div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6ea083e049ac18b2645e7962871b281b.setIcon(custom_icon_fa21538e98b68d64021415b298e7cce8);
+            
+    
+            var marker_563c5b3222f03fab6ea1dec90e3d93d9 = L.marker(
+                [0.357999, 31.081311],
+                {
+}
+            ).addTo(map_8933bc8f20bee2780887237149f0cbd4);
+        
+    
+        var custom_icon_8a42abd34e76352ff56565aa885e4b78 = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_563c5b3222f03fab6ea1dec90e3d93d9.setIcon(custom_icon_8a42abd34e76352ff56565aa885e4b78);
+        
+    
+        var popup_86dfb7ee13f7d7f6c54b4fd53a88b947 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c33001fe71bfd45ed9e50e2e3abe7876 = $(`<div id="html_c33001fe71bfd45ed9e50e2e3abe7876" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial;                      text-align: left;                      display: inline-block;                      padding: 10px;                     min-width: 200px;">             <h3 style="color: #2C3E50; margin: 0 0 10px 0;"><strong>Kyaka_II</strong></h3>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Population: <strong>125 754</strong> à la fin de 2023             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Latitude: <strong>0.357999</strong>             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Longitude: <strong>31.081311</strong>             </p>             <div style="text-align: center; margin: 15px 0;">                 <a href="#" onclick="openModal('modal_10');">                     <img src="../assets/img_TIF/Kyaka_II.gif"                           style="width: auto; height: auto; max-width: 100%; cursor: pointer; border: 1px solid #ddd;"                          alt="Aperçu Kyaka_II">                 </a>                 </div>                          <div style="text-align: center; margin: 15px 0;">                 <div style="margin-bottom: 8px;">                     <a href="#" onclick="openModal('modal_10_results');"                         style="font-size: 14px; color: white;                                text-decoration: none; background: #e74c3c;                                padding: 8px 15px; border-radius: 4px;                                display: inline-block; width: 150px; text-align: center;">                         📊 Voir les résultats                     </a>                 </div>                 <div>                     <a href=../assets/TIF/FBRcollectionMonthlyVV_Kyaka_II.tif                        download                         style="font-size: 14px; color: white;                                text-decoration: none; background: #3498db;                                padding: 8px 15px; border-radius: 4px;                               display: inline-block; width: 150px; text-align: center;">                         📥 Télécharger le .tif                     </a>                 </div>             </div>         </div>         </div>`)[0];
+                popup_86dfb7ee13f7d7f6c54b4fd53a88b947.setContent(html_c33001fe71bfd45ed9e50e2e3abe7876);
+            
+        
+
+        marker_563c5b3222f03fab6ea1dec90e3d93d9.bindPopup(popup_86dfb7ee13f7d7f6c54b4fd53a88b947)
+        ;
+
+        
+    
+    
+            marker_563c5b3222f03fab6ea1dec90e3d93d9.bindTooltip(
+                `<div>
+                     <div style='font-size: 16px; font-weight: bold;'>Kyaka_II</div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_563c5b3222f03fab6ea1dec90e3d93d9.setIcon(custom_icon_8a42abd34e76352ff56565aa885e4b78);
+            
+    
+            var marker_bc18c285dd2c3c87c1172fd4a3f59fc1 = L.marker(
+                [-20.346946, 32.308155],
+                {
+}
+            ).addTo(map_8933bc8f20bee2780887237149f0cbd4);
+        
+    
+        var custom_icon_7e72fad57ff581bd5c57e3e03036ef3a = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_bc18c285dd2c3c87c1172fd4a3f59fc1.setIcon(custom_icon_7e72fad57ff581bd5c57e3e03036ef3a);
+        
+    
+        var popup_c8e93bed4e083c219b2c515069b4dd28 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7dd6f458d0b804295c1f08e2c2cde09f = $(`<div id="html_7dd6f458d0b804295c1f08e2c2cde09f" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial;                      text-align: left;                      display: inline-block;                      padding: 10px;                     min-width: 200px;">             <h3 style="color: #2C3E50; margin: 0 0 10px 0;"><strong>Tongogara</strong></h3>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Population: <strong>N/A</strong> à la fin de 2023             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Latitude: <strong>-20.346946</strong>             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Longitude: <strong>32.308155</strong>             </p>             <div style="text-align: center; margin: 15px 0;">                 <a href="#" onclick="openModal('modal_11');">                     <img src="../assets/img_TIF/Tongogara.gif"                           style="width: auto; height: auto; max-width: 100%; cursor: pointer; border: 1px solid #ddd;"                          alt="Aperçu Tongogara">                 </a>                 </div>                          <div style="text-align: center; margin: 15px 0;">                 <div style="margin-bottom: 8px;">                     <a href="#" onclick="openModal('modal_11_results');"                         style="font-size: 14px; color: white;                                text-decoration: none; background: #e74c3c;                                padding: 8px 15px; border-radius: 4px;                                display: inline-block; width: 150px; text-align: center;">                         📊 Voir les résultats                     </a>                 </div>                 <div>                     <a href=../assets/TIF/FBRcollectionMonthlyVV_Tongogara.tif                        download                         style="font-size: 14px; color: white;                                text-decoration: none; background: #3498db;                                padding: 8px 15px; border-radius: 4px;                               display: inline-block; width: 150px; text-align: center;">                         📥 Télécharger le .tif                     </a>                 </div>             </div>         </div>         </div>`)[0];
+                popup_c8e93bed4e083c219b2c515069b4dd28.setContent(html_7dd6f458d0b804295c1f08e2c2cde09f);
+            
+        
+
+        marker_bc18c285dd2c3c87c1172fd4a3f59fc1.bindPopup(popup_c8e93bed4e083c219b2c515069b4dd28)
+        ;
+
+        
+    
+    
+            marker_bc18c285dd2c3c87c1172fd4a3f59fc1.bindTooltip(
+                `<div>
+                     <div style='font-size: 16px; font-weight: bold;'>Tongogara</div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_bc18c285dd2c3c87c1172fd4a3f59fc1.setIcon(custom_icon_7e72fad57ff581bd5c57e3e03036ef3a);
+            
+    
+            var marker_33704bf69c2bc4f76809fc6dddc57d10 = L.marker(
+                [1.939906, 32.170786],
+                {
+}
+            ).addTo(map_8933bc8f20bee2780887237149f0cbd4);
+        
+    
+        var custom_icon_0aeae9250dc198bc80754e71c5819d6f = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_33704bf69c2bc4f76809fc6dddc57d10.setIcon(custom_icon_0aeae9250dc198bc80754e71c5819d6f);
+        
+    
+        var popup_c6c3d93b4fe8bf98ebc298d4c4f14da5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1e087026b8db37c19c7fc4fe6010a52a = $(`<div id="html_1e087026b8db37c19c7fc4fe6010a52a" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial;                      text-align: left;                      display: inline-block;                      padding: 10px;                     min-width: 200px;">             <h3 style="color: #2C3E50; margin: 0 0 10px 0;"><strong>Kiryandongo</strong></h3>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Population: <strong>N/A</strong> à la fin de 2023             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Latitude: <strong>1.939906</strong>             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Longitude: <strong>32.170786</strong>             </p>             <div style="text-align: center; margin: 15px 0;">                 <a href="#" onclick="openModal('modal_12');">                     <img src="../assets/img_TIF/Kiryandongo.gif"                           style="width: auto; height: auto; max-width: 100%; cursor: pointer; border: 1px solid #ddd;"                          alt="Aperçu Kiryandongo">                 </a>                 </div>                          <div style="text-align: center; margin: 15px 0;">                 <div style="margin-bottom: 8px;">                     <a href="#" onclick="openModal('modal_12_results');"                         style="font-size: 14px; color: white;                                text-decoration: none; background: #e74c3c;                                padding: 8px 15px; border-radius: 4px;                                display: inline-block; width: 150px; text-align: center;">                         📊 Voir les résultats                     </a>                 </div>                 <div>                     <a href=../assets/TIF/FBRcollectionMonthlyVV_Kiryandongo.tif                        download                         style="font-size: 14px; color: white;                                text-decoration: none; background: #3498db;                                padding: 8px 15px; border-radius: 4px;                               display: inline-block; width: 150px; text-align: center;">                         📥 Télécharger le .tif                     </a>                 </div>             </div>         </div>         </div>`)[0];
+                popup_c6c3d93b4fe8bf98ebc298d4c4f14da5.setContent(html_1e087026b8db37c19c7fc4fe6010a52a);
+            
+        
+
+        marker_33704bf69c2bc4f76809fc6dddc57d10.bindPopup(popup_c6c3d93b4fe8bf98ebc298d4c4f14da5)
+        ;
+
+        
+    
+    
+            marker_33704bf69c2bc4f76809fc6dddc57d10.bindTooltip(
+                `<div>
+                     <div style='font-size: 16px; font-weight: bold;'>Kiryandongo</div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_33704bf69c2bc4f76809fc6dddc57d10.setIcon(custom_icon_0aeae9250dc198bc80754e71c5819d6f);
+            
+    
+            var marker_048d8d4aaab1971315731db97160e459 = L.marker(
+                [-0.776389, 30.949444],
+                {
+}
+            ).addTo(map_8933bc8f20bee2780887237149f0cbd4);
+        
+    
+        var custom_icon_cf2784fcb967dee1d1ce58b0888e33db = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_048d8d4aaab1971315731db97160e459.setIcon(custom_icon_cf2784fcb967dee1d1ce58b0888e33db);
+        
+    
+        var popup_5b84c9355f65517dbd87e388d2d02233 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6129d91082ddd6018a2e9eee4a336697 = $(`<div id="html_6129d91082ddd6018a2e9eee4a336697" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial;                      text-align: left;                      display: inline-block;                      padding: 10px;                     min-width: 200px;">             <h3 style="color: #2C3E50; margin: 0 0 10px 0;"><strong>Nakivale</strong></h3>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Population: <strong>183 441</strong> à la fin de 2023             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Latitude: <strong>-0.776389</strong>             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Longitude: <strong>30.949444</strong>             </p>             <div style="text-align: center; margin: 15px 0;">                 <a href="#" onclick="openModal('modal_13');">                     <img src="../assets/img_TIF/Nakivale.gif"                           style="width: auto; height: auto; max-width: 100%; cursor: pointer; border: 1px solid #ddd;"                          alt="Aperçu Nakivale">                 </a>                 </div>                          <div style="text-align: center; margin: 15px 0;">                 <div style="margin-bottom: 8px;">                     <a href="#" onclick="openModal('modal_13_results');"                         style="font-size: 14px; color: white;                                text-decoration: none; background: #e74c3c;                                padding: 8px 15px; border-radius: 4px;                                display: inline-block; width: 150px; text-align: center;">                         📊 Voir les résultats                     </a>                 </div>                 <div>                     <a href=../assets/TIF/FBRcollectionMonthlyVV_Nakivale.tif                        download                         style="font-size: 14px; color: white;                                text-decoration: none; background: #3498db;                                padding: 8px 15px; border-radius: 4px;                               display: inline-block; width: 150px; text-align: center;">                         📥 Télécharger le .tif                     </a>                 </div>             </div>         </div>         </div>`)[0];
+                popup_5b84c9355f65517dbd87e388d2d02233.setContent(html_6129d91082ddd6018a2e9eee4a336697);
+            
+        
+
+        marker_048d8d4aaab1971315731db97160e459.bindPopup(popup_5b84c9355f65517dbd87e388d2d02233)
+        ;
+
+        
+    
+    
+            marker_048d8d4aaab1971315731db97160e459.bindTooltip(
+                `<div>
+                     <div style='font-size: 16px; font-weight: bold;'>Nakivale</div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_048d8d4aaab1971315731db97160e459.setIcon(custom_icon_cf2784fcb967dee1d1ce58b0888e33db);
+            
+    
+            var marker_8620f56ef1c3fb99195c3b74169f47d4 = L.marker(
+                [3.291162, 31.940242],
+                {
+}
+            ).addTo(map_8933bc8f20bee2780887237149f0cbd4);
+        
+    
+        var custom_icon_8c0a4e9af46052aa6b2f5a2d866de8db = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_8620f56ef1c3fb99195c3b74169f47d4.setIcon(custom_icon_8c0a4e9af46052aa6b2f5a2d866de8db);
+        
+    
+        var popup_bb5c3e4c3f8e1c677bd0ede202c9b644 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_af0f2ea34c4e247dfbd729ffefdee349 = $(`<div id="html_af0f2ea34c4e247dfbd729ffefdee349" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial;                      text-align: left;                      display: inline-block;                      padding: 10px;                     min-width: 200px;">             <h3 style="color: #2C3E50; margin: 0 0 10px 0;"><strong>Ayilo_1</strong></h3>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Population: <strong>N/A</strong> à la fin de 2023             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Latitude: <strong>3.291162</strong>             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Longitude: <strong>31.940242</strong>             </p>             <div style="text-align: center; margin: 15px 0;">                 <a href="#" onclick="openModal('modal_14');">                     <img src="../assets/img_TIF/Ayilo_1.gif"                           style="width: auto; height: auto; max-width: 100%; cursor: pointer; border: 1px solid #ddd;"                          alt="Aperçu Ayilo_1">                 </a>                 </div>                          <div style="text-align: center; margin: 15px 0;">                 <div style="margin-bottom: 8px;">                     <a href="#" onclick="openModal('modal_14_results');"                         style="font-size: 14px; color: white;                                text-decoration: none; background: #e74c3c;                                padding: 8px 15px; border-radius: 4px;                                display: inline-block; width: 150px; text-align: center;">                         📊 Voir les résultats                     </a>                 </div>                 <div>                     <a href=../assets/TIF/FBRcollectionMonthlyVV_Ayilo_1.tif                        download                         style="font-size: 14px; color: white;                                text-decoration: none; background: #3498db;                                padding: 8px 15px; border-radius: 4px;                               display: inline-block; width: 150px; text-align: center;">                         📥 Télécharger le .tif                     </a>                 </div>             </div>         </div>         </div>`)[0];
+                popup_bb5c3e4c3f8e1c677bd0ede202c9b644.setContent(html_af0f2ea34c4e247dfbd729ffefdee349);
+            
+        
+
+        marker_8620f56ef1c3fb99195c3b74169f47d4.bindPopup(popup_bb5c3e4c3f8e1c677bd0ede202c9b644)
+        ;
+
+        
+    
+    
+            marker_8620f56ef1c3fb99195c3b74169f47d4.bindTooltip(
+                `<div>
+                     <div style='font-size: 16px; font-weight: bold;'>Ayilo_1</div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8620f56ef1c3fb99195c3b74169f47d4.setIcon(custom_icon_8c0a4e9af46052aa6b2f5a2d866de8db);
+            
+    
+            var marker_6653bf082e06f98f250b0628d8b6b05a = L.marker(
+                [-4.2209, 30.3846],
+                {
+}
+            ).addTo(map_8933bc8f20bee2780887237149f0cbd4);
+        
+    
+        var custom_icon_2f5542332b6dcfc2ceff651b5ce47838 = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_6653bf082e06f98f250b0628d8b6b05a.setIcon(custom_icon_2f5542332b6dcfc2ceff651b5ce47838);
+        
+    
+        var popup_ead04ca429b63f084da533083834996d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e7ab4e9d8edf1c38bcf69c4879e0aa13 = $(`<div id="html_e7ab4e9d8edf1c38bcf69c4879e0aa13" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial;                      text-align: left;                      display: inline-block;                      padding: 10px;                     min-width: 200px;">             <h3 style="color: #2C3E50; margin: 0 0 10px 0;"><strong>Nyarugusu</strong></h3>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Population: <strong>136 479</strong> à la fin de 2023             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Latitude: <strong>-4.220900</strong>             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Longitude: <strong>30.384600</strong>             </p>             <div style="text-align: center; margin: 15px 0;">                 <a href="#" onclick="openModal('modal_15');">                     <img src="../assets/img_TIF/Nyarugusu.gif"                           style="width: auto; height: auto; max-width: 100%; cursor: pointer; border: 1px solid #ddd;"                          alt="Aperçu Nyarugusu">                 </a>                 </div>                          <div style="text-align: center; margin: 15px 0;">                 <div style="margin-bottom: 8px;">                     <a href="#" onclick="openModal('modal_15_results');"                         style="font-size: 14px; color: white;                                text-decoration: none; background: #e74c3c;                                padding: 8px 15px; border-radius: 4px;                                display: inline-block; width: 150px; text-align: center;">                         📊 Voir les résultats                     </a>                 </div>                 <div>                     <a href=../assets/TIF/FBRcollectionMonthlyVV_Nyarugusu.tif                        download                         style="font-size: 14px; color: white;                                text-decoration: none; background: #3498db;                                padding: 8px 15px; border-radius: 4px;                               display: inline-block; width: 150px; text-align: center;">                         📥 Télécharger le .tif                     </a>                 </div>             </div>         </div>         </div>`)[0];
+                popup_ead04ca429b63f084da533083834996d.setContent(html_e7ab4e9d8edf1c38bcf69c4879e0aa13);
+            
+        
+
+        marker_6653bf082e06f98f250b0628d8b6b05a.bindPopup(popup_ead04ca429b63f084da533083834996d)
+        ;
+
+        
+    
+    
+            marker_6653bf082e06f98f250b0628d8b6b05a.bindTooltip(
+                `<div>
+                     <div style='font-size: 16px; font-weight: bold;'>Nyarugusu</div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6653bf082e06f98f250b0628d8b6b05a.setIcon(custom_icon_2f5542332b6dcfc2ceff651b5ce47838);
+            
+    
+            var marker_7e5a4ca3868333a25e6def1a272a2575 = L.marker(
+                [3.8486, 30.20186],
+                {
+}
+            ).addTo(map_8933bc8f20bee2780887237149f0cbd4);
+        
+    
+        var custom_icon_f8b98e1f2780d5c5077afdf96b97141f = L.icon({
+  "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAABD1JREFUSEvtlsuLXjUYh58kJzmX78w3t+JUKlgRi1VqtYi4ULEtI7UdL1h15catf4Og4N/g1r0IvdD7ZVS8gAsvWMtQKrhStEyn0853O8lJTuT7BBfO6MwUoQgGssnJyZP39+b9JYI72MQdZPMfhbfuDlgriT4SVuTtKHh7kZvpCDkP7pvlyvxZkDXY65tea9M/IFuRfIodzx5CpCVN/yY/fnYe7I1I6G5Kgc3B03ZNUib3P7mPpthCHSW5lojqFlcvHofQg6a34TU3PBE94YhaPzw7h9clvUaj0pzgHDpa8qbHwidnwC5DM9jQuhuahJrwpJPqgWf205iSBs3A1aRZjm9AiQbp+5Q4Lp8/umEF1ofLMlLOsP2JvcRsHC8NSim0jNQ+4BqBMQbZ1DTVCm1luTx/CuytdVPwz3CRRmTJ9qcOoCbvwcqcBoUddGnpSNM0BGmoG0GiFUZ4krpHFrosfHEBuovE0FdCiGatUlwTHmPUQmYOXbLnuZepsymuV5KQ5IQQSRWY6Ig0eKGJUuObALEh8RWm6VGEDgufnoXQH/Y1OasGY4yFSMZ6YNg9O8eyFaQTM3RDMgINW2E0ftBBa4XzDdYHsmIMFISqYqJIsDev0VaO788dh8aumYJV8G6MM2Uy/dueAy9RiZRgxggqZ+lmn9b4ODQN1lqGBa0kyFGX9CqLznKccxgZMdFSKk/mO3w7fxKqpVWsVQM2xp2p3rrwyNxr3HSKmGREoanrmiwzVJVDKk3aGmPQ6xB9RZGZkQIBgcmL0VlQ0RP7y7RijysfnwC32gFXwasYD2Z666n79r4I5RYGHhCK1CTUtvojYp3Sc3506pNhmRFxvsakOX3rRuPD6JXv0/JdFuaPgVtcP3IX45smmf5g5+wruHySioyerSnyDC3AVl3yPKc/sAiZ4EJDXrRGcocQRt9C1SeVniw6itjnu9NHIGxE9hDfTtOp9x598Q0WB+B0G5JhHXtkqCiUxNneaDPDOhc6ozOwyCSjGGtzY2mZPE0Q9QAT+pSi4vLnF6H38/qRD2J8Jzcz7+448DodclQ5TbfbJZeRNA6QVZfSwKVzp4HI8EXw0L5ZbFJSJzkdJ8nyAiPlCC76i1y9eAL8tfXhVYxvZWbr+9uePkh+170sdSxGJxQyoOsV2sLy9akjgIdwS6DLCAm79r+AMxN0RYEXBkIz8vzJxPHDyY/A/7o+/IaNu6ba2y7tPvQqy06CKYjek7gOY9Jy6dwxwA79+8/FlFIx0OKx5w/TFePUapgSTyoD9Jf56csLkcEvq67btUymFHq68/jBw6zUw/gUWgkmM8VXxz6Epr+mYaTjU9H2himYI5oCpMI7S1vDN2eORvzS+vCRhaliJCUigSQF7yAO7dND0/37+0DmkaELmhxqP9yApakFsRaErvmrv69/q93O42yD//wP36BQ/+60Oyr7754i+ixnwysFAAAAAElFTkSuQmCC",
+  "iconSize": [30, 30],
+});
+        marker_7e5a4ca3868333a25e6def1a272a2575.setIcon(custom_icon_f8b98e1f2780d5c5077afdf96b97141f);
+        
+    
+        var popup_fd31c7c34075891a6ede82d90f6939ec = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3a5dc1a43b8453440b0d48f65cac0d19 = $(`<div id="html_3a5dc1a43b8453440b0d48f65cac0d19" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial;                      text-align: left;                      display: inline-block;                      padding: 10px;                     min-width: 200px;">             <h3 style="color: #2C3E50; margin: 0 0 10px 0;"><strong>Meri</strong></h3>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Population: <strong>25 203</strong> à la fin de 2023             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Latitude: <strong>3.848600</strong>             </p>             <p style="font-size: 14px; color: #2C3E50; margin: 5px 0;">                 Longitude: <strong>30.201860</strong>             </p>             <div style="text-align: center; margin: 15px 0;">                 <a href="#" onclick="openModal('modal_16');">                     <img src="../assets/img_TIF/Meri.gif"                           style="width: auto; height: auto; max-width: 100%; cursor: pointer; border: 1px solid #ddd;"                          alt="Aperçu Meri">                 </a>                 </div>                          <div style="text-align: center; margin: 15px 0;">                 <div style="margin-bottom: 8px;">                     <a href="#" onclick="openModal('modal_16_results');"                         style="font-size: 14px; color: white;                                text-decoration: none; background: #e74c3c;                                padding: 8px 15px; border-radius: 4px;                                display: inline-block; width: 150px; text-align: center;">                         📊 Voir les résultats                     </a>                 </div>                 <div>                     <a href=../assets/TIF/FBRcollectionMonthlyVV_Meri.tif                        download                         style="font-size: 14px; color: white;                                text-decoration: none; background: #3498db;                                padding: 8px 15px; border-radius: 4px;                               display: inline-block; width: 150px; text-align: center;">                         📥 Télécharger le .tif                     </a>                 </div>             </div>         </div>         </div>`)[0];
+                popup_fd31c7c34075891a6ede82d90f6939ec.setContent(html_3a5dc1a43b8453440b0d48f65cac0d19);
+            
+        
+
+        marker_7e5a4ca3868333a25e6def1a272a2575.bindPopup(popup_fd31c7c34075891a6ede82d90f6939ec)
+        ;
+
+        
+    
+    
+            marker_7e5a4ca3868333a25e6def1a272a2575.bindTooltip(
+                `<div>
+                     <div style='font-size: 16px; font-weight: bold;'>Meri</div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7e5a4ca3868333a25e6def1a272a2575.setIcon(custom_icon_f8b98e1f2780d5c5077afdf96b97141f);
+            
+</script>
+</html>

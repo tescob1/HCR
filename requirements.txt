@@ -1,0 +1,22 @@
+# requirements.txt
+# Dépendances pour le projet des camps de réfugiés
+
+# Génération de cartes interactives
+folium>=0.14.0
+
+# Manipulation de données
+pandas>=1.5.0
+
+# Lecture/écriture JSON et CSV (inclus dans Python standard)
+# json - module standard
+# csv - module standard
+
+# Interface en ligne de commande (inclus dans Python standard)
+# argparse - module standard
+
+# Gestion des fichiers et chemins (inclus dans Python standard)
+# os - module standard
+# pathlib - module standard
+
+# Gestion des types (inclus dans Python 3.5+)
+# typing - module standard

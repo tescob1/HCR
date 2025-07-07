@@ -1,0 +1,246 @@
+{
+  "camps": [
+    {
+      "name": "Abala",
+      "coords": [
+        14.910382,
+        3.418554
+      ],
+      "population": "21 394",
+      "radar": "VH",
+      "icon": {
+        "path": "assets/icons/blue_house.png",
+        "size": 30
+      },
+      "icon_type": "blue"
+    },
+    {
+      "name": "Awserd",
+      "coords": [
+        27.626641,
+        -7.872215
+      ],
+      "population": "N/A",
+      "radar": "VH",
+      "icon": {
+        "path": "assets/icons/blue_house.png",
+        "size": 30
+      },
+      "icon_type": "blue"
+    },
+    {
+      "name": "Bambasi",
+      "coords": [
+        9.777854,
+        34.780491
+      ],
+      "population": "20 712",
+      "radar": "VH",
+      "icon": {
+        "path": "assets/icons/blue_house.png",
+        "size": 30
+      },
+      "icon_type": "blue"
+    },
+    {
+      "name": "Dakhla",
+      "coords": [
+        26.830602,
+        -6.864148
+      ],
+      "population": "N/A",
+      "radar": "VH",
+      "icon": {
+        "path": "assets/icons/blue_house.png",
+        "size": 30
+      },
+      "icon_type": "blue"
+    },
+    {
+      "name": "Mbera",
+      "coords": [
+        15.833333,
+        -5.8
+      ],
+      "population": "100 807",
+      "radar": "VH",
+      "icon": {
+        "path": "assets/icons/blue_house.png",
+        "size": 30
+      },
+      "icon_type": "blue"
+    },
+    {
+      "name": "Smara",
+      "coords": [
+        27.501643,
+        -7.818791
+      ],
+      "population": "N/A",
+      "radar": "VH",
+      "icon": {
+        "path": "assets/icons/blue_house.png",
+        "size": 30
+      },
+      "icon_type": "blue"
+    },
+    {
+      "name": "Gaga",
+      "coords": [
+        13.763725,
+        21.447086
+      ],
+      "population": "36 856",
+      "radar": "VH",
+      "icon": {
+        "path": "assets/icons/green_house.png",
+        "size": 30
+      },
+      "icon_type": "green"
+    },
+    {
+      "name": "Chadakori",
+      "coords": [
+        13.672647,
+        6.99
+      ],
+      "population": "N/A",
+      "radar": "VH",
+      "icon": {
+        "path": "assets/icons/grey_house.png",
+        "size": 30
+      },
+      "icon_type": "grey"
+    },
+    {
+      "name": "Bidibidi",
+      "coords": [
+        3.478382,
+        31.373434
+      ],
+      "population": "197 535",
+      "radar": "VH",
+      "icon": {
+        "path": "assets/icons/blue_house.png",
+        "size": 30
+      },
+      "icon_type": "blue"
+    },
+    {
+      "name": "Kyangwali",
+      "coords": [
+        1.179656,
+        30.763555
+      ],
+      "population": "133 265",
+      "radar": "VH",
+      "icon": {
+        "path": "assets/icons/blue_house.png",
+        "size": 30
+      },
+      "icon_type": "blue"
+    },
+    {
+      "name": "Kyaka_II",
+      "coords": [
+        0.357999,
+        31.081311
+      ],
+      "population": "125 754",
+      "radar": "VV",
+      "icon": {
+        "path": "assets/icons/blue_house.png",
+        "size": 30
+      },
+      "icon_type": "blue"
+    },
+    {
+      "name": "Tongogara",
+      "coords": [
+        -20.346946,
+        32.308155
+      ],
+      "population": "N/A",
+      "radar": "VV",
+      "icon": {
+        "path": "assets/icons/blue_house.png",
+        "size": 30
+      },
+      "icon_type": "blue"
+    },
+    {
+      "name": "Kiryandongo",
+      "coords": [
+        1.939906,
+        32.170786
+      ],
+      "population": "N/A",
+      "radar": "VV",
+      "icon": {
+        "path": "assets/icons/blue_house.png",
+        "size": 30
+      },
+      "icon_type": "blue"
+    },
+    {
+      "name": "Nakivale",
+      "coords": [
+        -0.776389,
+        30.949444
+      ],
+      "population": "183 441",
+      "radar": "VV",
+      "icon": {
+        "path": "assets/icons/blue_house.png",
+        "size": 30
+      },
+      "icon_type": "blue"
+    },
+    {
+      "name": "Ayilo_1",
+      "coords": [
+        3.291162,
+        31.940242
+      ],
+      "population": "N/A",
+      "radar": "VV",
+      "icon": {
+        "path": "assets/icons/blue_house.png",
+        "size": 30
+      },
+      "icon_type": "blue"
+    },
+    {
+      "name": "Nyarugusu",
+      "coords": [
+        -4.2209,
+        30.3846
+      ],
+      "population": "136 479",
+      "radar": "VV",
+      "icon": {
+        "path": "assets/icons/blue_house.png",
+        "size": 30
+      },
+      "icon_type": "blue"
+    },
+    {
+      "name": "Meri",
+      "coords": [
+        3.8486,
+        30.20186
+      ],
+      "population": "25 203",
+      "radar": "VV",
+      "icon": {
+        "path": "assets/icons/blue_house.png",
+        "size": 30
+      },
+      "icon_type": "blue"
+    }
+  ],
+  "metadata": {
+    "total_camps": 17,
+    "version": "1.0"
+  }
+}
